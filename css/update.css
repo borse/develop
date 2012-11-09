@@ -11,6 +11,10 @@ body {
 
 		
 }
+
+.float_breaker{
+clear:both;	
+}
 .li_title{
 
 	background:#CCCCCC;
@@ -36,9 +40,23 @@ body {
 	width:100%;
 }
 .div_update_input{
-		width:1000px;
+		width:40%;
 	 
-	clear:both;
+	float:left;
+}
+.div_update_tags{
+		width:40%;
+	 
+	float:left;
+}
+.div_update_tags   li {
+	
+	background:#CCCCCC;
+	width:40%;
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	text-align:left;
 }
 .div_data{
 

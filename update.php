@@ -34,18 +34,22 @@
 	
  
 ?>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Update</title>
 <link href="css/update.css" rel="stylesheet" type="text/css" />
+
 </head>
 </head>
 
 <body>
 
 
-<p>
+<p id="display"></p>
   
 
 
@@ -145,10 +149,7 @@
           <p> </p>
         
           <hr/>
-          <ul>
-             <li  class="li_title">Update: <?PHP echo $row['update_id']?></li> 
-             <li class = "li_text"><?php echo $row['details']?></li> 
-          </ul>
+         
            <p></p>
     
     	  <p></p>
@@ -169,12 +170,12 @@
    }//end if $_GET
 ?>
   
-  
+   <p class="float_breaker">&nbsp;</p>
  
   <div class="div_update_input">
   
     
-    <p>&nbsp;</p>
+   
     
         <hr/>
     
@@ -188,12 +189,27 @@
               <textarea name="details" id="details" cols="45" rows="5"></textarea></td>
             </tr>
             <tr>
-              <td>&nbsp;</td>
+              <td>     </td>
               <td><input type="submit" name="updates" id="button" value="Update" /></td>
             </tr>
           </table>
         </form>
     
 </div>
+<div id ="div_update_tags" class="div_update_tags">
+	<ul>
+    	<li>ali</li>
+        <li>mahmood</li>
+        <li>shenway</li>
+        <li>tamer</li>
+        <li>zaki</li>
+        
+    </ul>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  
+<script type="text/javascript" src="js/update.js"></script>
+
 </body>
 </html>
