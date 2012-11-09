@@ -34,12 +34,11 @@
 	
  
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Update</title>
-<link href="loginmodule.css" rel="stylesheet" type="text/css" />
+<link href="css/update.css" rel="stylesheet" type="text/css" />
 </head>
 </head>
 
@@ -117,34 +116,48 @@
 	   while($row=mysql_fetch_assoc($results))
 	   {
 	  ?>
-      <p> </p>
+       <div class="div_loop">
       
-      <p> </p>
-    
-      <p> </p>
-    
-      <hr/>
+      
+      <div class="div_data">
+          <p> </p>
           
-<table width="656" border="0">
-        <tr>
-          <td width="39" bgcolor="#CCCCCC">ID</td>
-          <td width="607" bgcolor="#CCCCCC">Update</td>
-        </tr>
+          <p> </p>
         
-     
-        <tr>
-          <td><?PHP echo $row['update_id']?></td>
-          <td><?php echo $row['details']?></td>
-        </tr>
-     
-     </table>
+          <p> </p>
+        
+          <hr/>
+          <ul>
+          
+             <li  class="li_title">Update: <?PHP echo $row['update_id']?></li> 
+             <li class = "li_text"><?php echo $row['details']?></li> 
+          </ul>
+           <p></p>
     
- 
-      <p></p>
+     	 <p></p>
+      </div>
     
-      <p></p>
+      <div class="div_tag">
+          <p> </p>
+          
+          <p> </p>
+        
+          <p> </p>
+        
+          <hr/>
+          <ul>
+             <li  class="li_title">Update: <?PHP echo $row['update_id']?></li> 
+             <li class = "li_text"><?php echo $row['details']?></li> 
+          </ul>
+           <p></p>
     
+    	  <p></p>
       
+      </div>
+  		
+     
+    
+       </div>
       
       
       
@@ -157,29 +170,30 @@
 ?>
   
   
+ 
+  <div class="div_update_input">
   
-  
-  
-</p>
-
-
-<hr/>
-
-
-<form id="form1" name="form1" method="post" action="">
-<input name="to_do_id" type = "hidden" value= "<?php echo $_GET['object'] ?>"/>
-  <table width="200" border="0">
-    <tr>
-      <td>Update:</td>
-      <td><label for="textarea2"></label>
-      <textarea name="details" id="details" cols="45" rows="5"></textarea></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="submit" name="updates" id="button" value="Update" /></td>
-    </tr>
-  </table>
-</form>
-<p>&nbsp;</p>
+    
+    <p>&nbsp;</p>
+    
+        <hr/>
+    
+    
+        <form id="form1" name="form1" method="post" action="">
+        <input name="to_do_id" type = "hidden" value= "<?php echo $_GET['object'] ?>"/>
+          <table width="200" border="0">
+            <tr>
+              <td>Update:</td>
+              <td><label for="textarea2"></label>
+              <textarea name="details" id="details" cols="45" rows="5"></textarea></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><input type="submit" name="updates" id="button" value="Update" /></td>
+            </tr>
+          </table>
+        </form>
+    
+</div>
 </body>
 </html>

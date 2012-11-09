@@ -1,0 +1,112 @@
+/* CSS Document */
+
+body {
+	
+	font: 14px Verdana, Arial, Helvetica, sans-serif;
+	color: #666666;
+	margin: 0px;
+	padding: 20px 10px 0px;
+	text-align:	center;
+	background-color: #E6FFF9;
+
+		
+}
+.li_title{
+
+	background:#CCCCCC;
+	width:100%;
+	list-style:none;
+	margin:0px;
+	padding:0px;
+
+}
+
+.li_text{
+	list-style:none;
+	text-align:left;
+	width:100%;
+	margin:0px;
+	padding-left:25px;
+	
+}
+.div_loop{
+	
+
+	clear:both;
+	width:100%;
+}
+.div_update_input{
+		width:1000px;
+	 
+	clear:both;
+}
+.div_data{
+
+  	width:40%;
+	float:left;
+}
+.div_tag{
+	
+	width:40%;
+	float:left;
+	
+	
+}
+.textfield {
+	font-size: 11px;
+	color: #333333;
+	background: #F7F7F7;
+	border: 1px solid #CCCCC;
+	padding-left: 1px;
+}
+h1 {
+	color: #F00;
+	margin: 0px 0px 5px;
+	padding: 0px 0px 3px;
+	font: bold 200% Verdana, Arial, Helvetica, sans-serif;
+	text-align:left;
+	
+	
+}
+
+
+
+
+
+
+a {
+	color: #2D3954;
+	font-size: 11px;
+	
+	
+}
+.menu_bar {
+	
+text-align:right;	
+}
+a:hover {
+	color: #F00;
+
+padding:2px;
+}
+.err {
+	color: #FF9900;	
+}
+th {
+	font-weight: bold;
+	text-align: left;
+}
+
+#edit_link
+{
+	font-size: 20px;
+	text-align: right;
+	color:#6CF;
+
+}
+#edit_link:hover
+ {	
+	color: #99CC00;
+
+   padding:2px;
+}
