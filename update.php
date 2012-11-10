@@ -198,18 +198,15 @@
 </div>
 <div id ="div_update_tags" class="div_update_tags">
 	<ul>
-    	<li>ali</li>
-        <li>mahmood</li>
-        <li>shenway</li>
-        <li>tamer</li>
-        <li>zaki</li>
+    	
         
     </ul>
 </div>
+<input type="textbox" id="text1"/>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   
 <script type="text/javascript" src="js/update.js"></script>
-
+<div id="displaydata">display</div>
 </body>
 </html>
