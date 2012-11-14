@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>My Profile</title>
-<link href="loginmodule.css" rel="stylesheet" type="text/css" />
+<link href="css/loginmodule.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1>My Profile </h1>

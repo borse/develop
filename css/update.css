@@ -11,7 +11,9 @@ body {
 
 		
 }
-
+#display_tagged{
+	color:#F00;	
+}
 .float_breaker{
 clear:both;	
 }
@@ -45,8 +47,11 @@ clear:both;
 	float:left;
 }
 .div_update_tags{
-		width:40%;
-	 
+		width:25%;
+		
+		position: absolute;
+		left:35%;
+			 
 	float:left;
 }
 .div_update_tags   li {
@@ -58,10 +63,9 @@ clear:both;
 	padding:0px;
 	text-align:left;
 }
-.div_data{
-
-  	width:40%;
-	float:left;
+.div_update_tags   li:hover {
+ 	cursor:pointer;
+	background:#FFF;
 }
 .div_tag{
 	

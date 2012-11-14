@@ -170,6 +170,7 @@
    }//end if $_GET
 ?>
   
+  <div id="update_form">
    <p class="float_breaker">&nbsp;</p>
  
   <div class="div_update_input">
@@ -183,6 +184,10 @@
         <form id="form1" name="form1" method="post" action="">
         <input name="to_do_id" type = "hidden" value= "<?php echo $_GET['object'] ?>"/>
           <table width="200" border="0">
+           <tr>
+           <td>Tagged:</td>
+           <td><p id="display_tagged"> .</p> </td>
+           </tr>
             <tr>
               <td>Update:</td>
               <td><label for="textarea2"></label>
@@ -203,7 +208,7 @@
     </ul>
 </div>
 <input type="textbox" id="text1"/>
-
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   
 <script type="text/javascript" src="js/update.js"></script>
