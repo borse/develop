@@ -20,16 +20,21 @@ $counter=0;
 
 while(($row=mysql_fetch_assoc($results))!==false)
 {
-	$user_list[$counter] = array('id' => $row['member_id'], 'username' => $row['login']);
-	$counter++;
-	
+			//$user_list[$counter] = array('id' => $row['member_id'], 'username' => $row['login']);
+		//	$counter++;
+		?>
+		<li id="li<?= $counter?>" onclick="add_to_dev_array('li<?= $counter?>',<?= $row['member_id']?>,'<?= $row['login']?>')"><?= $row['login']?></li>
+			<?php
+			$counter++;
 }//end of while
-echo json_encode($user_list);
+//echo json_encode($user_list);
 
 
 
 //$results =mysql_query($query,$db_link);
 
 ?>
+
+<li style="background-color:#FFDBDC" id="li_cancel" onclick="add_to_dev_array('li_cancel',0,'')">Cancel</li>
 
 
