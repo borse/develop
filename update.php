@@ -8,28 +8,9 @@
 	
 	
 	
-	//check if update was pressed
-	if(isset($_POST['updates']))
-	{
-		//add values to vars
-		//prevent sql injection, clean function found in funtions/general.php
-		$to_do_id= $_POST['to_do_id'];  //this is a hidden input in the form
-		$details= clean($_POST['details']);
-			
-		//insert new update to to_do_updates table
-		$query="INSERT INTO to_do_updates (to_do_id,details) VALUES ('$to_do_id','$details')";
-		//run query
-		if(!$results= mysql_query($query,$db_link))
-		{
-			echo 'query 2 error ';
-			exit();
-		}else
-		{
-			echo 'update added';
-		}//end of else
-		 
-	 	
-	}//end of if $_POST[
+	
+	
+	
 	
 	
  
@@ -195,7 +176,7 @@
             </tr>
             <tr>
               <td>     </td>
-              <td><input type="submit" name="updates" id="button" value="Update" /></td>
+              <td><input type="submit" name="updates" id="updates" value="Update" /></td>
             </tr>
           </table>
         </form>
