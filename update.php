@@ -114,8 +114,10 @@
           <hr/>
           <ul>
           
-             <li  class="li_title">Update: <?PHP echo $row['update_id']?></li> 
-             <li class = "li_text"><?php echo $row['details']?></li> 
+             <li  id="li_title">Update: <?PHP echo $row['update_id']?></li> 
+             <li id="li_tagged">ali_abdulla3, Mahmoud </li>
+             <li id = "li_text"><?php echo $row['details']?></li> 
+             <li id="li_dev">amz_raptor</li>
           </ul>
            <p></p>
     
@@ -123,21 +125,11 @@
       </div>
     
       <div class="div_tag">
-          <p> </p>
-          
-          <p> </p>
-        
-          <p> </p>
-        
-          <hr/>
-         
-           <p></p>
-    
-    	  <p></p>
+           <p id="status">Active</p>
       
       </div>
   		
-     
+      <p class="float_breaker">&nbsp;</p>
     
        </div>
       

@@ -17,7 +17,7 @@ body {
 .float_breaker{
 clear:both;	
 }
-.li_title{
+#li_title{
 
 	background:#CCCCCC;
 	width:100%;
@@ -26,8 +26,14 @@ clear:both;
 	padding:0px;
 
 }
+#li_tagged{
+	color:#F03;
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
 
-.li_text{
+#li_text{
 	list-style:none;
 	text-align:left;
 	width:100%;
@@ -35,11 +41,38 @@ clear:both;
 	padding-left:25px;
 	
 }
+#li_dev{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	color:#00C;
+	text-align:left;
+		
+}
+
 .div_loop{
 	
-
+	margin-left:0;
+	padding-left:0;
 	clear:both;
 	width:100%;
+}
+.div_data{
+	float:left;
+	width:40%;
+	
+}
+.div_tag{
+	
+	width:10%;
+	float:left;
+	margin-left:0;
+	padding-left:0;
+
+}
+#status{
+
+	border:thick solid #0C9;	
 }
 .div_update_input{
 		width:40%;
@@ -67,13 +100,7 @@ clear:both;
  	cursor:pointer;
 	background:#FFF;
 }
-.div_tag{
-	
-	width:40%;
-	float:left;
-	
-	
-}
+
 .textfield {
 	font-size: 11px;
 	color: #333333;
