@@ -4,7 +4,11 @@ var counter=0;
 var appointed_devs_id=[];
 var appointed_devs_names=[];
 var details_text="";
+var $form = $( '#form1' ),
+ //this is a hidden input	
+to_do_id = $form.find( 'input[name="to_do_id"]' ).val();
 
+load_updates();
 hide_element("#div_update_tags",1);
 
 $('#div_update_tags').live('keypress', function(e) {
@@ -95,15 +99,14 @@ function add_to_dev_array(element,dev_id,dev_name)
 
  $("#form1").submit(function(event) {
 	
-	 alert('FUCK OFF!, IM NOT YOUR SLAVE!');
+	// alert('FUCK OFF!, IM NOT YOUR SLAVE!');
 	 //prevent devault action of button
 	 event.preventDefault();
 	 
 	   var $form = $( this ),
 		//var details = details textarea
         details = $form.find( 'textarea[name="details"]' ).val(),
-		//this is a hidden input
-	
+		//this is a hidden input	
 		to_do_id = $form.find( 'input[name="to_do_id"]' ).val(),
 		//ussrl for ajax function,, 
         url =  "functions/update/insert_update.php";
@@ -119,10 +122,46 @@ function add_to_dev_array(element,dev_id,dev_name)
       		}//end of function
     	);//end of post
 	 
-	
+	 //refresh list of updates
+
+	 load_updates();
+	 //reset all values
+
+
+  $('#details').val("");
+ 
+ $('#display_tagged').html(" ");
+ 
+ //delete all elements of array
+  var aLen = ( appointed_devs_id.length - 1 ); 
+   for ( var x = aLen; appointed_devs_id[ x ]; x-- ) { // Removing all 500 items from the bigArray.
+      appointed_devs_id.pop( x ); 
+	  appointed_devs_names.pop( x ); 
+	  
+   }//end for
+ 
 	
 	});//end of click
 
+
+function load_updates(){
+	
+
+			//ussrl for ajax function,, 
+			url =  "functions/update/load_updates.php";
+			 /* Send the data using post and put the results in a div */
+	   
+		  $.post( url, {  to_do_id: to_do_id},
+				function( data2) {
+			 // var content = $( data ).find( '#content' );
+			  //$( "#result" ).empty().append( content );
+			   
+			  $('#div_body').html(data2);
+			  
+				}//end of function
+			);//end of post	
+	
+}//end of function load_updates
 function hide_element(element,speed)
   {
 	  $(element).hide(speed);

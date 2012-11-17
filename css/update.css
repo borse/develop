@@ -70,9 +70,24 @@ clear:both;
 	padding-left:0;
 
 }
-#status{
+#enabled_status{
+cursor:pointer;	
+background-color:#F1F1F1;
+}
+.li_status_active{
 
-	border:thick solid #0C9;	
+	 border:thick solid #FF9900;	
+	background-color:#FF9900;
+}
+.li_status_completed{
+
+	border:thick solid  #000;	
+	background-color:#000;
+}
+.li_status_cancelled{
+
+	border:thick solid #CCC;	
+	background-color:#CCC;
 }
 .div_update_input{
 		width:40%;

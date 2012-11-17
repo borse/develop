@@ -25,19 +25,18 @@
 <link href="css/update.css" rel="stylesheet" type="text/css" />
 
 </head>
-</head>
+ 
 
 <body>
 
 
 <p id="display"></p>
-  
-
 
 
 <?php
 	include('minicode/menu.php');
   	//check if to_do selected
+	 
    if(isset($_GET['object']))
    {
 	   
@@ -62,7 +61,7 @@
 ?>
 
 <p align="center" style="font-size:18px;color:#900"><?php echo '//=============================== TO-DO ID= ',$to_do_id,'=============================== ' ?> </p>
-<p style="text-align:right"><a style="font-size:16px; color:#39F" href="<?='full-list.php'.'?done='.$_GET['object']?>">Done!</a></p>
+<p style="text-align:right"><a style="font-size:16px; color:#39F" href="<?php echo 'full-list.php'.'?done='.$_GET['object']?>">Done!</a></p>
 <table width="717" border="1">
   <tr>
     <td width="71">Title:</td>
@@ -74,74 +73,12 @@
   </tr>
 </table>
 <hr style="color:#60C"/>
-<?php
+ <div id="div_body">
 
-
-	   
-	   
-	   
-	   
-	   
-	   
-	   //--------------
-	   $to_do_id= $_GET['object'];
-	   //select all updates from 
-	   $query="SELECT * FROM to_do_updates 
-	   WHERE to_do_id='$to_do_id'";
-		//run query
-		if(!$results= mysql_query($query,$db_link))
-		{
-			echo 'query 1 error ';
-			exit();
-		}//end if
-		
-	
-		   
-	   //list all updates
-	   while($row=mysql_fetch_assoc($results))
-	   {
-	  ?>
-       <div class="div_loop">
-      
-      
-      <div class="div_data">
-          <p> </p>
-          
-          <p> </p>
-        
-          <p> </p>
-        
-          <hr/>
-          <ul>
-          
-             <li  id="li_title">Update: <?PHP echo $row['update_id']?></li> 
-             <li id="li_tagged">ali_abdulla3, Mahmoud </li>
-             <li id = "li_text"><?php echo $row['details']?></li> 
-             <li id="li_dev">amz_raptor</li>
-          </ul>
-           <p></p>
-    
-     	 <p></p>
-      </div>
-    
-      <div class="div_tag">
-           <p id="status">Active</p>
-      
-      </div>
-  		
-      <p class="float_breaker">&nbsp;</p>
-    
-       </div>
-      
-      
-      
-      
-      <?php
-	   }//end while loop
-	 
-	   
+<?php	   
    }//end if $_GET
 ?>
+  </div>
   
   <div id="update_form">
    <p class="float_breaker">&nbsp;</p>
