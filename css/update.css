@@ -19,7 +19,7 @@ clear:both;
 }
 #li_title{
 
-	background:#CCCCCC;
+	background:#AEAEFF;
 	width:100%;
 	list-style:none;
 	margin:0px;
@@ -28,9 +28,12 @@ clear:both;
 }
 #li_tagged{
 	color:#F03;
+	background-color:#fff;
 	list-style:none;
 	margin:0px;
-	padding:0px;
+ 	padding-left:25px;
+	width:100%;
+	
 }
 
 #li_text{
@@ -39,6 +42,8 @@ clear:both;
 	width:100%;
 	margin:0px;
 	padding-left:25px;
+	background-color:#fff;
+	
 	
 }
 #li_dev{
@@ -51,7 +56,7 @@ clear:both;
 }
 
 .div_loop{
-	
+	float:left;
 	margin-left:0;
 	padding-left:0;
 	clear:both;
@@ -60,6 +65,14 @@ clear:both;
 .div_data{
 	float:left;
 	width:40%;
+	
+	
+}
+#div_status_change{
+	background-color:#C03;
+	 
+	float:left;
+	width:100%;
 	
 }
 .div_tag{

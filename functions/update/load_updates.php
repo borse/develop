@@ -106,7 +106,7 @@
 			
 		
 		?>
-          <hr/>
+          
           
           <ul>
           
@@ -124,6 +124,7 @@
 						}//end of while
                 ?>             
              </li>
+			 
              <li id = "li_text"><?php echo $row['details']?></li> 
              <li id="li_dev"><?= $update_creator_username ?></li>
           </ul>
@@ -138,14 +139,14 @@
 				//check if logged in user is able to edit the status of the update or not
 				//in_array(element.array)  , this function searchs the element in the array, ..
 				if (in_array($_SESSION['SESS_MEMBER_ID'], $users_editable)) {
-  			  		  $p_id= 'id="enabled_status"';
+  			  		  $p_id= 'id="enabled_status"  onclick="enable_statuz()"';
 					}else
 					 {
 						$p_id=''; 
 					 }
 				if($update_status==1)
 				{
-				 echo'	<p ',$p_id,' class="li_status_active" >Active</p>';
+				 echo'	<p  ',$p_id,' class="li_status_active" >Active</p>';
 				}
 					if($update_status==2)
 				{
@@ -157,11 +158,15 @@
 				}
 				
 				?>
-               
+                 
+          		     
       
       </div>
+         <p class="float_breaker">&nbsp;</p>
+	  
+	 
   		
-      <p class="float_breaker">&nbsp;</p>
+       
     
      
       

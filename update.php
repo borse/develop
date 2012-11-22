@@ -78,20 +78,21 @@
 <?php	   
    }//end if $_GET
 ?>
+
+
   </div>
+    
   
-  <div id="update_form">
+<div id="update_form">
    <p class="float_breaker">&nbsp;</p>
  
+ 
+ 
+ 
   <div class="div_update_input">
-  
+         <hr/>
     
-   
-    
-        <hr/>
-    
-    
-        <form id="form1" name="form1" method="post" action="">
+  <form id="form1" name="form1" method="post" action="">
         <input name="to_do_id" type = "hidden" value= "<?php echo $_GET['object'] ?>"/>
           <table width="200" border="0">
            <tr>
@@ -123,5 +124,8 @@
   
 <script type="text/javascript" src="js/update.js"></script>
 <div id="displaydata">display</div>
+  <div id="div_status_change">
+     <p>s</p>
+    </div>
 </body>
 </html>

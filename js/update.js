@@ -1,22 +1,29 @@
 // JavaScript Document
  
  //Variables: =============================================== --- VARIABLES--- =======================================
+var mLeft ;
+var  mTop ;
 var counter=0;
 var appointed_devs_id=[];
 var appointed_devs_names=[];
 var details_text="";
 var $form = $( '#form1' ),
+
  //this is a hidden input	
 to_do_id = $form.find( 'input[name="to_do_id"]' ).val();
 
 load_updates();
 hide_element("#div_update_tags",1);
-hide_element("#div_status_change",1);
+ 
 
 
 
 //Events: =============================================== --- EVENTS--- =======================================
+ $(document).mousemove(function(e){
 
+	  mLeft=e.pageX;
+    mTop=	  e.pageY
+   }); 
 
  $("#form1").submit(function(event) {
 	
@@ -66,27 +73,7 @@ hide_element("#div_status_change",1);
 
 
 //draw the status bullets
-$('#enabled_status').click(function(e){
-	 show_element("#div_status_change",350);
-	 
-	 	$.post('functions/update/change_status.php',{ },function(data){
-					//start of function
-					
-			 
-				 
-					$('#div_status_change').html(data);	
-			
-						
-						
-							
-				   }//end of function
-				);//end of $.post
-				
-			 //========================
-	 
-	
-	
-});
+
 
 $('#div_update_tags').live('keypress', function(e) {
 	$('#details').text(e.keyCode);
@@ -138,6 +125,20 @@ $(function() {
 
 //functions: =============================================== --- FUNCTIONS--- =======================================
 
+function enable_statuz(){
+	 
+	 alert('s');
+	 //alert(mLeft+'  '+mTop);
+	 moveIt('#div_status_change',mTop,mLeft);
+	//  show_element("#div_status_change",350);
+	 //get_mouse_location('#enable_statuz');
+	 	// moveIt();
+				
+			 //========================
+	 
+	
+	
+} //end of function enable status
 //change the current status of to_do_update
 function change_status(element_id, value)
 {
@@ -212,4 +213,14 @@ function show_element(element,speed)
   }//end of function_show element
   
   
-  
+  function moveIt(element, mouseTop, mouseLeft) 
+ {
+	 
+	 alert('sas');
+	 element='#div_status_change';
+	element.style.position = "absolute";
+	element.style.top = 100 + 'px'	;
+	element.style.left = 100 + 'px';
+}
+
+
