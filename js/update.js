@@ -13,7 +13,7 @@ var $form = $( '#form1' ),
 to_do_id = $form.find( 'input[name="to_do_id"]' ).val();
 
 load_updates();
-hide_element("#div_update_tags",1);
+hide_element("div_update_tags",1);
  
 
 
@@ -87,7 +87,7 @@ $(function() {
 		{
 			//show_element('#div_update_tags',5000);
 			
-			 show_element("#div_update_tags",350);
+			 show_element("div_update_tags",350);
 			
 			 //backuo deatials_text doesnot contain '@' char			
 			 
@@ -126,23 +126,24 @@ $(function() {
 //functions: =============================================== --- FUNCTIONS--- =======================================
 
 function enable_statuz(){
-	 
-	 alert('s');
-	 //alert(mLeft+'  '+mTop);
-	 moveIt('#div_status_change',mTop,mLeft);
-	//  show_element("#div_status_change",350);
-	 //get_mouse_location('#enable_statuz');
-	 	// moveIt();
-				
-			 //========================
+	
+	//show the div)_status_change, and move it to the mouse cursor:
+ 	show_element('div_status_change',1);
+	
+	
+	move_element('div_status_change');
+	  
+			 
+	
 	 
 	
 	
 } //end of function enable status
+
 //change the current status of to_do_update
 function change_status(element_id, value)
 {
-	hide_element('#'+element_id);
+	hide_element(element_id);
 }//end of function change)status
 function add_to_dev_array(element,dev_id,dev_name)
 {
@@ -163,13 +164,13 @@ function add_to_dev_array(element,dev_id,dev_name)
 	x.innerHTML=appointed_devs_names;
 		$('#details').val(details_text);	
 	//hide clicked username li
-	hide_element('#'+element,600);
+	hide_element(element,600);
 	//hide all usernames div
 
 	
 	$('#div_update_tags').fadeOut(1200, function() {
 		
-		hide_element("#div_update_tags",1050);
+		hide_element("div_update_tags",1050);
 		
 	
     
@@ -204,23 +205,35 @@ function load_updates(){
 }//end of function load_updates
 function hide_element(element,speed)
   {
-	  $(element).hide(speed);
+	  $('#'+element).hide(speed);
   }//end of function_hide element
   
 function show_element(element,speed)
   {
-	  $(element).show(speed);
+	  $('#'+element).show(speed);
   }//end of function_show element
   
-  
-  function moveIt(element, mouseTop, mouseLeft) 
+  //move any element to the clicked position
+  function move_element(element_id) 
  {
+	 //get the element
 	 
-	 alert('sas');
-	 element='#div_status_change';
-	element.style.position = "absolute";
-	element.style.top = 100 + 'px'	;
-	element.style.left = 100 + 'px';
+	 var element=document.getElementById(element_id);
+	 element.style.position="absolute";
+	 element.style.left=mLeft+"px";
+	 element.style.top=mTop+"px";
+	 
+	 //$("#div_status_change").animate({ 
+     //   Left: "+=" +mouseLeft + "px",
+    //}, 1000 );
+	 
+	 
+	 
+		
+    //$('element').style.position = "absolute";
+	//$('element').style.top += mouseTop  	;
+	//$('element').style.left += mouseLeft   ;
+ 
 }
 
 

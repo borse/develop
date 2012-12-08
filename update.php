@@ -27,7 +27,7 @@
 </head>
  
 
-<body>
+<body >
 
 
 <p id="display"></p>
@@ -62,7 +62,7 @@
 
 <p align="center" style="font-size:18px;color:#900"><?php echo '//=============================== TO-DO ID= ',$to_do_id,'=============================== ' ?> </p>
 <p style="text-align:right"><a style="font-size:16px; color:#39F" href="<?php echo 'full-list.php'.'?done='.$_GET['object']?>">Done!</a></p>
-<table width="717" border="1">
+<table width="717" border="1"  >
   <tr>
     <td width="71">Title:</td>
     <td width="100%"><?= $row['title']?></td>

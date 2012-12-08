@@ -5,6 +5,8 @@
 
 	include('functions/general.php');
 	include('functions/full-list.php');
+	
+	include('functions/db.php');
 
 	include('functions/connect_db.php');
 	
@@ -19,7 +21,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Develop</title>
-<link href="css/loginmodule.css" rel="stylesheet" type="text/css" />
+<link href="css/index.css" rel="stylesheet" type="text/css" />
 </head>
 <style type="text/css">
 .aligen_cen {
@@ -33,7 +35,7 @@
 
 <body>
 
-
+<div id="div_menu">
 <?php
 include('minicode/menu.php');
 	//ig "new page" link was clicked.. display new page form
@@ -48,6 +50,16 @@ include('minicode/menu.php');
 
 
 ?>
+</div>
+
+<div id="div_main_body">
+	<div id="div_created_tasks" >
+    	<p> Tasks created by me:</p>
+        <div id="div_tasks_table">
+ 			       
+        </div>
+     </div>
+</div>
 
 
 
@@ -61,5 +73,8 @@ include('minicode/menu.php');
     <p>&nbsp; </p>
     
 <p>&nbsp;</p>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
