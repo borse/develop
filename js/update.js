@@ -51,9 +51,7 @@ hide_element("div_status_change",1);
       		}//end of function
     	);//end of post
 	 
-	 //refresh list of updates
-
-	 load_updates();
+	 
 	 //reset all values
 
 
@@ -69,7 +67,9 @@ hide_element("div_status_change",1);
 	  
    }//end for
  
-	
+	//refresh list of updates
+
+	 load_updates();
 	});//end of form submit
 
 
