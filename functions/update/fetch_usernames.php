@@ -23,7 +23,7 @@ while(($row=mysql_fetch_assoc($results))!==false)
 			//$user_list[$counter] = array('id' => $row['member_id'], 'username' => $row['login']);
 		//	$counter++;
 		?>
-		<li id="li<?= $counter?>" onclick="add_to_dev_array('li<?= $counter?>',<?= $row['member_id']?>,'<?= $row['login']?>')"><?= $row['login']?></li>
+		<li id="li<?= $counter?>" class ="li_usernames"onclick="add_to_dev_array('li<?= $counter?>',<?= $row['member_id']?>,'<?= $row['login']?>')"><?= $row['login']?></li>
 			<?php
 			$counter++;
 }//end of while
@@ -35,6 +35,6 @@ while(($row=mysql_fetch_assoc($results))!==false)
 
 ?>
 
-<li style="background-color:#FFDBDC" id="li_cancel" onclick="add_to_dev_array('li_cancel',0,'')">Cancel</li>
+<li style="background-color:#FFDBDC" id="li_cancel"  onclick="add_to_dev_array('li_cancel',0,'')">Cancel</li>
 
 

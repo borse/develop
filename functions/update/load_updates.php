@@ -139,7 +139,7 @@
 				//check if logged in user is able to edit the status of the update or not
 				//in_array(element.array)  , this function searchs the element in the array, ..
 				if (in_array($_SESSION['SESS_MEMBER_ID'], $users_editable)) {
-  			  		  $p_id= 'id="enabled_status"  onclick="enable_statuz()"';
+  			  		  $p_id= 'id="enabled_status"  onclick="enable_statuz('.$update_id.')"';
 					}else
 					 {
 						$p_id=''; 

@@ -32,7 +32,7 @@
 
 <p id="display"></p>
 
-
+<input  id="update_id_of_clicked_status" type="hidden" val/>
 <?php
 	include('minicode/menu.php');
   	//check if to_do selected
@@ -120,12 +120,19 @@
 </div>
 <input type="textbox" id="text1"/>
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+<div id="displaydata">display</div>
+  <div id="div_status_change" class="div_status_change" >
+     <ul>
+    	<li id= "li_active" 		   class="li_status_active" 		 onclick="send_changed_status('active','li_active')"> mark as Active</li>
+        <li id= "li_completed"   class="li_status_completed"   onclick= "send_changed_status('completed','li_completed')"> mark as Completed</li>
+   	    <li id= "li_cancelled"	   class="li_status_cancelled"     onclick= "send_changed_status('cancelled','li_cancelled')">mark as Cancelled</li>
+        <li id= "li_do_nothing" class="li_do_nothing"             onclick= "send_changed_status('do_nothing','li_do_nothing')">do nothing</li>
+                
+    </ul>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   
 <script type="text/javascript" src="js/update.js"></script>
-<div id="displaydata">display</div>
-  <div id="div_status_change">
-     <p>s</p>
-    </div>
 </body>
 </html>

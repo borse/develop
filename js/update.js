@@ -14,6 +14,7 @@ to_do_id = $form.find( 'input[name="to_do_id"]' ).val();
 
 load_updates();
 hide_element("div_update_tags",1);
+hide_element("div_status_change",1);
  
 
 
@@ -125,20 +126,65 @@ $(function() {
 
 //functions: =============================================== --- FUNCTIONS--- =======================================
 
-function enable_statuz(){
+function enable_statuz(update_id){
+	
+	//set hidden input to update_id
+	  $('input#update_id_of_clicked_status').val(update_id);
+	//  alert ( $('input#update_id_of_clicked_status').val());
 	
 	//show the div)_status_change, and move it to the mouse cursor:
- 	show_element('div_status_change',1);
-	
-	
+ 	hide_element('div_status_change', 1)
 	move_element('div_status_change');
-	  
+	show_element('div_status_change',300);  
+	//repoplute the div, incase li was hidden from past actions
+	show_element('li_active',1);
+	show_element('li_completed',1);
+	show_element('li_cancelled',1);
+	show_element('li_do_nothing',1);
+	
+	
+	
 			 
 	
 	 
 	
 	
 } //end of function enable status
+
+
+//after active/completed/cancled has been clicked.. do function:
+function send_changed_status(action,element)
+{
+	
+	//hide the clicked li
+	hide_element(element,100);
+	
+	//hide all of the div
+	fade_out_element('div_status_change' ,100);
+	
+	//if user clicked li_do_nothing, exist function, without running the upcoming query.
+	if (action=="do_nothing")
+	{
+				return ;
+	}//end of  if (action=="do_nothing")
+	
+	//.run query, that will change the status.. send action..
+	
+	update_id=  $('input#update_id_of_clicked_status').val();
+	 url="functions/update/send_changed_status.php";
+	  $.post( url, {update_id:update_id, action: action},
+				function( data) {
+			 // var content = $( data ).find( '#content' );
+			  //$( "#result" ).empty().append( content );
+			   
+			 	 
+			  
+				}//end of function
+			);//end of post	
+	
+	//now refresh page to display changes 
+	 load_updates();
+}//end of send_changed_status(action)
 
 //change the current status of to_do_update
 function change_status(element_id, value)
@@ -203,6 +249,10 @@ function load_updates(){
 			);//end of post	
 	
 }//end of function load_updates
+
+
+//================================= ANIMATION FUNCTIONS===================
+
 function hide_element(element,speed)
   {
 	  $('#'+element).hide(speed);
@@ -212,6 +262,25 @@ function show_element(element,speed)
   {
 	  $('#'+element).show(speed);
   }//end of function_show element
+  
+  
+  
+  function fade_out_element(element, speed)
+  {
+		$('#'+element).fadeOut(speed, function() {
+		
+		hide_element(element,speed);
+		});
+		
+		
+  }//end of function fade_out_elemnt
+  
+  function fade_in_element(element, speed)
+  {
+		$('#'+element).fadein(speed);
+  }//end of function fade_in_elemnt
+  
+  
   
   //move any element to the clicked position
   function move_element(element_id) 

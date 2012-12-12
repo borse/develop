@@ -1,25 +1,25 @@
 <?php
-//creats conncetion to db_develop, returns $con 
+//creats conncetion to db_develop, returns $db_link 
 function get_conn_and_connect()
 {
-    $con = mysql_connect("localhost","1116075_db","SIlver");
-    if (!$con)
+    $db_link = mysql_connect("localhost","1116075_db","SIlver");
+    if (!$db_link)
       {
       	echo("cant connect to borse.com!");
       }
 
-    if (!mysql_select_db("db_develop", $con))
+    if (!mysql_select_db("db_develop", $db_link))
       {
       	echo("cant connect to db_dev");
       }
 
-    return $con;
+    return $db_link;
 } //END OF ==> get_con_and_connect()
 
-//close connection $con;
-function close_conn($con) 
+//close connection $db_link;
+function close_conn($db_link) 
 {
-    mysql_close($con);
+    mysql_close($db_link);
 }//END OF ==>close_conn()
 
 
@@ -37,9 +37,9 @@ function get ($table, $fields, $values)
 	$query.= ("$fields[$i]='$values[$i]' AND ");
     }
     $query = "SELECT * FROM $table WHERE ".substr($query,0,-5);
-    $con = get_conn_and_connect();
+    $db_link = get_conn_and_connect();
     
-	if(!$results = mysql_query($query, $con))
+	if(!$results = mysql_query($query, $db_link))
 	{
 		echo $query,'<br/>';
 		echo "error in query"	,mysql_error();
@@ -49,10 +49,10 @@ function get ($table, $fields, $values)
     if (!$row = mysql_fetch_assoc($results) ) 
     {
 	//echo"hey";
-        close_conn($con);
+        close_conn($db_link);
         return false;
     }
-    close_conn($con);
+    close_conn($db_link);
     return $row;
 }//  END OF == > get()
 
@@ -71,8 +71,8 @@ function get_multi($table, $fields, $values)
 	$query.= ("$fields[$i]='$values[$i]' AND ");
     }
     $query = "SELECT * FROM $table WHERE ".substr($query,0,-5);
-    $con = get_conn_and_connect();
-    $results = mysql_query($query, $con);
+    $db_link = get_conn_and_connect();
+    $results = mysql_query($query, $db_link);
     $rows = array();
     $i = 0;
 
@@ -83,10 +83,10 @@ function get_multi($table, $fields, $values)
     }
     if (sizeof($rows) == 0) 
     {
-        close_conn($con);
+        close_conn($db_link);
         return false;
     }
-    close_conn($con);
+    close_conn($db_link);
     return $rows;
 }//END OF==> get_multi()
 
@@ -111,14 +111,14 @@ function update($table, $setfields, $setvalues, $wherefields, $wherevalues)
     }
 
     $query = "UPDATE $table SET ".substr($query,0,-1)." WHERE ".substr($query2,0,-5);
-    $con = get_conn_and_connect();
-    $results = mysql_query($query, $con);
+    $db_link = get_conn_and_connect();
+    $results = mysql_query($query, $db_link);
     if ($results == false) 
     {
-        close_conn($con);
+        close_conn($db_link);
         return false;
     }
-    close_conn($con);
+    close_conn($db_link);
     return true;
 }//END OF==> update()
 
@@ -131,7 +131,7 @@ function add($table, $fields, $values)
 	echo"error in add field and value mismatch.";
 	return 0;
     }
-    $con = get_conn_and_connect();
+    $db_link = get_conn_and_connect();
     $query="";
     $query2="";
     for ($i=0; $i<sizeof($fields); $i++)
@@ -142,15 +142,15 @@ function add($table, $fields, $values)
     }
     $query = "INSERT INTO $table(".substr($query,0,-1).")VALUES(".substr($query2,0,-1).")";
  
-    $results = mysql_query($query,$con);
+    $results = mysql_query($query,$db_link);
     if ($results) 
     {
         $curr_id = mysql_insert_id();
-        close_conn($con);
+        close_conn($db_link);
       	return $curr_id;
     }
 
-    close_conn($con);
+    close_conn($db_link);
     return false;
 }//END OF ==> add()
 

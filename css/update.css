@@ -68,13 +68,7 @@ clear:both;
 	
 	
 }
-#div_status_change{
-	background-color:#C03;
-	 
-	float:left;
-	width:15%;
-	
-}
+
 .div_tag{
 	
 	width:10%;
@@ -102,6 +96,14 @@ background-color:#F1F1F1;
 	border:thick solid #CCC;	
 	background-color:#CCC;
 }
+.li_do_nothing{
+	border:thick solid #FFDBDC;	
+	background-color:#FFDBDC;
+}
+.li_usernames{
+	background-color:#D5E4FF;
+}
+
 .div_update_input{
 		width:40%;
 	 
@@ -117,7 +119,7 @@ background-color:#F1F1F1;
 }
 .div_update_tags   li {
 	
-	background:#CCCCCC;
+	
 	width:40%;
 	list-style:none;
 	margin:0px;
@@ -128,6 +130,43 @@ background-color:#F1F1F1;
  	cursor:pointer;
 	background:#FFF;
 }
+
+
+
+
+
+.div_status_change{
+		width:15%;
+		
+		position: absolute;
+		margin:0px;
+	padding:0px;
+			 
+	float:left;
+}
+.div_status_change   li {
+	
+	
+	
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	text-align:left;
+}
+div_status_change   ul {
+	
+	
+	
+	
+	margin:0px;
+	padding:0px;
+	
+}
+.div_status_change   li:hover {
+ 	cursor:pointer;
+	background:#FFF;
+}
+
 
 .textfield {
 	font-size: 11px;
