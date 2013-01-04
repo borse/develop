@@ -53,14 +53,41 @@ include('minicode/menu.php');
 </div>
 
 <div id="div_main_body">
-	<div id="div_created_tasks" >
-    	<p> Tasks created by me:</p>
-        <div id="div_tasks_table">
+	<div id="div_static_area" >
+    
+    	<ul>
+        <li><a onclick="load_created_tasks()">Tasks created by me</a> </li>
+         <li><a onclick="load_created_tags()"> Tags created by me</a></li>
+         <li><a onclick="load_notifications(400)">Notifications from otheres</a></li>
+         <li><a onclick="clear_div_print_table()"> Hide</a> </li>
+         </ul>
+     
+        <div id="div_print_table">
  			       
         </div>
+        
+        
      </div>
+     <div id="div_dynamic_area">
+     <h2> Notifications:</h2>
+     <p></p>
+     <p>Unread notifications:</p>
+     <div id="div_unread_notifications_table">
+ 			       
+      </div>
+        
+     <p>Recent notifications:</p>
+     <div id="div_notification_table">
+ 			       
+      </div>
+ 			       
+       </div>
 </div>
 
+<div class= "log" id= "log"> 
+</div>
+<div class= "buffer" id= "buffer"> 
+</div>
 
 
 
@@ -74,7 +101,7 @@ include('minicode/menu.php');
     
 <p>&nbsp;</p>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-  
+<script type="text/javascript" src="js/scripts/general.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

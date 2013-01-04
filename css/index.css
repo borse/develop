@@ -59,14 +59,63 @@ th {
 clear:both;	
 }
 
+.info{
+font-size:11px;	
+font-family: 	"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.info b{
+color:#09F;	
+}
  /* ------- divs-------*/
+ 
+ 
  #div_menu{
 	text-align:	center; 
 	 
  }
  
- #div_tasks_table{
+ #div_print_table{
 	border: solid;
 	border-color: #633;
-	 width:30%;
+    width:60%;
+    padding: 10px;
+  	height:200px;
+	 overflow:scroll;
  }
+
+ 
+ #div_static_area{
+	   width:60%;
+	 	 float:left;
+		 margin:10px;
+		 
+		 }
+
+#div_notification_table{
+	border: solid;
+	border-color: #633;
+    width:100%;
+    padding: 10px;
+	
+}
+#div_unread_notifications_table{
+	border: solid;
+	border-color: #633;
+    width:100%;
+    padding: 10px;
+}
+ #div_dynamic_area{
+	 margin:10px;
+	 width:30%;
+	 float:left;
+	 
+ }
+ .log{
+	color:#306; 
+
+ }
+ .buffer{
+	 display:none;
+ }
+ 

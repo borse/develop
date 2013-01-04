@@ -160,14 +160,136 @@ function get_user_id($username)
 {
     $fields = array("login");
     $values = array($username);
-    $id = get("developers", $fields, $values);
-    if($id)
+    $row = get("developers", $fields, $values);
+    if($row)
     {
-        return $id['member_id'];
+        return $row['member_id'];
     }
     return false;
+} //end of function get_user_id($username) =====
+
+//opens tags table, lists all tags created by the supplied Member_ID
+function get_created_tags($developer_id)
+{
+	
+    $fields = array("creator_dev_id");
+    $values = array($developer_id);
+    $row = get_multi("tags", $fields, $values);
+    if($row)
+    {
+		//return alot of results, this is an array
+        return $row;
+    }
+    return false;
+}//end of  function get_created_tags($developer_id)=========
+
+function get_appointed_dev_name($developer_id)
+{
+	 $fields = array("member_id");
+    $values = array($developer_id);
+    $row = get("developers", $fields, $values);
+    if($row)
+    {
+        return $row['login'];
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+	
 }
 
+function get_page_name($to_do_id)
+{
+	$fields = array("to_do_id");
+    $values = array($to_do_id);
+    $row = get("to_do", $fields, $values);
+    if($row)
+    {
+		//start new query,  get name of the page from pages table
+     
+		$fields = array("page_id");
+    	$values = array($row['page_id']);
+		unset ($row);
+   	 	$row = get("pages", $fields, $values);
+		
+		//return the name of page
+		return $row['name'];
+		
+		
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+}//end of function get_page_name($to_do_id)
 
+function get_task_name($to_do_id)
+{
+	$fields = array("to_do_id");
+    $values = array($to_do_id);
+    $row = get("to_do", $fields, $values);
+	  if($row)
+    {
+        return $row['title'];
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+	
+}//end of function get_task_name($to_do_id)
+
+function get_appointed_tags($developer_id)
+{
+	
+    $fields = array("appointed_dev_id");
+    $values = array($developer_id);
+    $row = get_multi("tags", $fields, $values);
+    if($row)
+    {
+		//return alot of results, this is an array
+        return $row;
+    }
+    return false;
+}//end of function get_appointed_tags($deveolper_id)
+
+function 	mark_tag_read($tag_id)
+{
+	 $setfields = array("isRead");
+    $setvalues = array("1");
+    $wherefields = array("tag_ID");
+    $wherevalues = array($tag_id);
+    $row = update("tags", $setfields, $setvalues, $wherefields, $wherevalues);
+    if ($row != false)
+    {
+        return true;
+    }
+    return false;
+}//end of function 	mark_tag_read($to_do_id)
+
+function get_to_do_id_from_tags($tag_id)
+{
+	$fields = array("tag_id");
+    $values = array($tag_id);
+    $row = get("tags", $fields, $values);
+	  if($row)
+    {
+        return $row['to_do_id'];
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+}//end of function get_to_do_id_from_tags($tag_id)
+	
 
 ?>
