@@ -9,6 +9,8 @@
 			 
 				<form id="form2" name="form2" method="post" action="<?PHP echo $_SERVER['PHP_SELF']?>">
 				<h1>New Page:</h1>
+                <p></p>
+                <p><b>adding new pages disabled for  now/maintaince mode</b></p>
 				  <table width="200" border="0">
 					<tr>
 					  <td></td>
@@ -169,6 +171,8 @@
 		
 	?>
       <h1>New To-Do:</h1>       
+       <p></p>
+                <p><b>adding new tasks disabled for  now/maintaince mode</b></p>
                
         <form id="form1" name="form1" method="post" action="<?PHP echo $_SERVER['PHP_SELF']?>">
           <table width="200" border="0">

@@ -57,6 +57,38 @@ function get ($table, $fields, $values)
 }//  END OF == > get()
 
 
+
+//excutes a query ,selects all fields, returns an ARRAY of $row
+function get_all_table($table)
+{
+    if(sizeof($fields) != sizeof($values))
+    {
+	echo"error in add field and value mismatch.";
+	return 0;
+    }
+ 
+    
+    $query = "SELECT * FROM $table  ";
+    $db_link = get_conn_and_connect();
+    $results = mysql_query($query, $db_link);
+    $rows = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_assoc($results))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+    if (sizeof($rows) == 0) 
+    {
+        close_conn($db_link);
+        return false;
+    }
+    close_conn($db_link);
+    return $rows;
+}//END OF==> getall_table()
+
+
 //excutes a query using included parameters, returns an ARRAY of $row
 function get_multi($table, $fields, $values)
 {
@@ -174,11 +206,11 @@ function get_created_tags($developer_id)
 	
     $fields = array("creator_dev_id");
     $values = array($developer_id);
-    $row = get_multi("tags", $fields, $values);
-    if($row)
+    $rows = get_multi("tags", $fields, $values);
+    if($rows)
     {
 		//return alot of results, this is an array
-        return $row;
+        return $rows;
     }
     return false;
 }//end of  function get_created_tags($developer_id)=========
@@ -291,5 +323,87 @@ function get_to_do_id_from_tags($tag_id)
     return false;
 }//end of function get_to_do_id_from_tags($tag_id)
 	
+//get path from table folders
+function 	get_folder_path($folder_id)
+{
+	 $fields = array("folder_id");
+    $values = array($folder_id);
+    $row = get("folders", $fields, $values);
+    if($row)
+    {
+        return $row['path'];
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+}//end of function 	get_folder_path($folder_id)
+
+
+
+function get_folder_id_using_path_and_folder_name($folder,$path)
+{
+	   $fields = array("name", "path");
+    $values = array($folder, $path);
+    $row = get("folders", $fields, $values);
+	
+    if ($row == false) return false;
+    return $row['folder_id'];
+	
+}//end of function get_folder_id_using_path_and_folder_name($folder,$path);
+
+function add_parent_ids_to_path_array($path_array)
+{
+	
+	$current_id=$path_array[0];
+	$i=0;
+	//endless loop
+	while($i==0)
+	{
+			//while parent ID is not 0
+		 if(($current_id=get_parent_id($current_id))!=0)
+		 {
+			 array_push($path_array, $current_id);
+			 
+			 
+		 }
+		 else
+		{
+			 break;
+		 }
+		
+	}//end of endless while loop
+	
+	return $path_array;
+}//end of function add_parent_ids_to_path_array($path_array);
+
+function get_parent_id($folder_id)
+{
+	 $fields = array("folder_id");
+    $values = array($folder_id);
+    $row = get("folders", $fields, $values);
+    if($row)
+    {
+        return $row['parent_id'];
+    }
+    return false;
+	
+}//get_parent_id
+
+
+function get_all_rows_where_parent_id($folder_id)
+{
+	$fields = array("parent_id");
+    $values = array($folder_id);
+    $rows = get_multi("folders", $fields, $values);
+    if($rows)
+    {
+		//return alot of results, this is an array
+        return $rows;
+    }
+    return false;
+}//end 			get_all_rows_where_parent_id($folder_id)
 
 ?>

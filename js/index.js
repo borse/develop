@@ -69,7 +69,7 @@ function load_created_tasks()
 
 
 
-function load_created_tags()
+function load_created_tags(counter)
 {
 	 
 	 
@@ -80,7 +80,7 @@ function load_created_tags()
 			
 			
 			//populate the table
-		  $.post( url, {  },
+		  $.post( url, {counter:counter },
 				function( data ) {
 			 // var content = $( data ).find( '#content' );
 			  //$( "#result" ).empty().append( content );

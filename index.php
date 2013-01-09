@@ -57,7 +57,7 @@ include('minicode/menu.php');
     
     	<ul>
         <li><a onclick="load_created_tasks()">Tasks created by me</a> </li>
-         <li><a onclick="load_created_tags()"> Tags created by me</a></li>
+         <li><a onclick="load_created_tags(400)"> Tags created by me</a></li>
          <li><a onclick="load_notifications(400)">Notifications from otheres</a></li>
          <li><a onclick="clear_div_print_table()"> Hide</a> </li>
          </ul>

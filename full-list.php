@@ -43,7 +43,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Develop</title>
-<link href="css/loginmodule.css" rel="stylesheet" type="text/css" />
+<link href="css/full-list.css" rel="stylesheet" type="text/css" />
 </head>
 <style type="text/css">
 .aligen_cen {
@@ -106,5 +106,9 @@ include('minicode/menu.php');
     <p>&nbsp; </p>
     
 <p>&nbsp;</p>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/scripts/general.js"></script>
+<script type="text/javascript" src="js/full-list.js"></script>
 </body>
 </html>

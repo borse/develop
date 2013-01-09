@@ -20,7 +20,9 @@
 		//echo '<a onclick="notification_clicked(',$row['tag_ID'],')">', $name=get_appointed_dev_name($row['creator_dev_id']),' has tagged you @ ',get_page_name($row['to_do_id']),'/',get_task_name($row['to_do_id']),'@ Update NO: ',$row['to_do_update_id'],' </a> <br>';
 		 
 	?>
-        	<a class="info" onclick="notification_clicked(<?=$row['tag_ID']?>)"> <b><?=$name=get_appointed_dev_name($row['creator_dev_id'])?> </b>has tagged you @ <b><?=get_page_name($row['to_do_id'])?></b>/<b><?=get_task_name($row['to_do_id']) ?></b>  <br/>@ Update NO:  <b><?=$row['to_do_update_id']?> </b> </a> <br/>
+        
+            <p  class="info" > <b><?=$name=get_appointed_dev_name($row['creator_dev_id'])?> </b>has tagged you @ <b><?=get_page_name($row['to_do_id'])?></b>/<b onclick="notification_clicked(<?=$row['tag_ID']?>)"><?=get_task_name($row['to_do_id']) ?></b>  <br/> @ Update NO:  <b onclick="notification_clicked(<?=$row['tag_ID']?>)"><?=$row['to_do_update_id']?> </b> </p>  
+            
         <?php
 	 
 		

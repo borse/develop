@@ -88,7 +88,7 @@ $(function() {
 		{
 			//show_element('#div_update_tags',5000);
 			
-			 show_element("div_update_tags",350);
+			 show_element("div_update_tags",50);
 			
 			 //backuo deatials_text doesnot contain '@' char			
 			 
@@ -210,13 +210,13 @@ function add_to_dev_array(element,dev_id,dev_name)
 	x.innerHTML=appointed_devs_names;
 		$('#details').val(details_text);	
 	//hide clicked username li
-	hide_element(element,600);
+	hide_element(element,50);
 	//hide all usernames div
 
 	
-	$('#div_update_tags').fadeOut(1200, function() {
+	$('#div_update_tags').fadeOut(100, function() {
 		
-		hide_element("div_update_tags",1050);
+		hide_element("div_update_tags",50);
 		
 	
     
