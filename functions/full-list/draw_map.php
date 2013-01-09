@@ -63,15 +63,17 @@
                                                            
                                                            <?php
 														   //make coloired
-														   if($row['folder_id']==$folder_id)
+														   foreach($path_array as $folder)
 														   {
-															echo 'background-color:#FFD3B7;'   ;
-														   }
-														   
+															   if($row['folder_id']==$folder)
+															   {
+																echo 'background-color:#FFD3B7;'   ;
+															   }//end if 
+														   }//end foreach
 														   ?>
                                                            
                                                            "
-                                                                class="ui-corner-all draggable ui-draggable" id="wrapper">
+                                                                class="ui-corner-all draggable ui-draggable" id="wrapper" onclick="draw_map(<?=$row['folder_id']?>)">
                                                                 <table cellspacing="0" cellpadding="0" style="width: 100%;">
                                                                     <tbody>
                                                                         <tr>

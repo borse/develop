@@ -49,7 +49,7 @@ include('minicode/menu.php');
               </select> 
               
               
-                <input  type="textfield" value="folder id" id="folder_id"/>
+               
          
  <div id="draw_map">
    

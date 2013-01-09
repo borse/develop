@@ -4,7 +4,7 @@
 
 
 	include('functions/general.php');
-	include('functions/full-list.php');
+	include('functions/full-list/full-list.php');
 	
 	include('functions/db.php');
 

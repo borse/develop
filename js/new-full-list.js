@@ -21,7 +21,7 @@ var ico_userNormal  = 'icons/user-48x48.png',
 $(document).ready(function () {
 	
 	
- 
+ draw_map(1);
 	
 	//when a new site is selected
 	$('#select_site').change(function() {
@@ -237,13 +237,13 @@ function random(range) {
     return Math.floor(Math.random() * range);
 }
 
-function draw_map()
+function draw_map(folder_id)
 {
 	 
 	 		//url for ajax function,, 
 			url =  "functions/full-list/draw_map.php";
 			 /* Send the data using post and put the results in a div */
-			 var folder_id= $("#folder_id").val();
+			 
 	   
 		  $.post( url, { folder_id:folder_id },
 				function( data ) {

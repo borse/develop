@@ -1,10 +1,14 @@
+ 
+
 <?php
 
 	require_once('auth.php');
 
 
+	 
+	include('functions/full-list/full-list.php');
 	include('functions/general.php');
-	include('functions/full-list.php');
+	include("functions/db.php");
 
 	include('functions/connect_db.php');
 	//=============================== TO-DO ID= 18===============================
@@ -36,30 +40,37 @@
 	}//end of $_POST[ new to do IF
 	
 	
+ 
+	
+ 
+ 
+	 
+	
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Develop</title>
+<head> <meta charset="utf-8" />
+    <title>Lines between Draggable and Droppable</title>
+      <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+    
 <link href="css/full-list.css" rel="stylesheet" type="text/css" />
 </head>
-<style type="text/css">
-.aligen_cen {
-	text-align: center;
-}
-.alig_center {
-	text-align: center;
-}
-</style>
+  
 </head>
 
-<body>
+ 
+<body id="body">
 
 
 <?php
 include('minicode/menu.php');
+
+ ?>
+ 
+<?php
+ 
 	//ig "new page" link was clicked.. display new page form
 	if(isset($_GET['new_page']))
 	{
@@ -81,34 +92,46 @@ include('minicode/menu.php');
 
 ?>
 
-
-
-
-
-<?php
-
-	//=============================== TO-DO ID= 17===============================
-	//if linke "list finished tasks" is clicked, change table
-	if(isset($_GET['listfinshedtasks']))
-	{	
-					//list finished tasts
-					get_list_finshed_tasks();
+ 
+   <select name="select_site" id ="select_site">
+                <?php
 					
-	//=============================== TO-DO ID= 17===============================				
-	}else //list onGoing tasks =======normal view
-	{
+					$rows=get_all_table("sites"	);
+					//display sites drop down menu
+					foreach($rows as $row)
+					{
+				?>
+		
+        				   <option value="<?php echo $row['site_id'] ?>"><?php echo $row['name'] ?></option>				
+				
+                <?php		
+					}//end of while
 					
-					//list ongoing tasts
-					 get_list_ongoing_tasks();
-					
-	}//end of 'else' argument   of -> if(isset($_GET['listfninshedtasks']))
-?>
+				
+				?>
+              </select> 
+              
+              
+               
+         
+ <div id="draw_map">
+   
+  </div>
+    
+    
+   
     <p>&nbsp; </p>
     
 <p>&nbsp;</p>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="js/scripts/general.js"></script>
+ 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
+    <script type="text/javascript" src="js/scripts/general.js"></script>
 <script type="text/javascript" src="js/full-list.js"></script>
+
+
 </body>
 </html>
