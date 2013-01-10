@@ -393,7 +393,7 @@ function get_parent_id($folder_id)
 }//get_parent_id
 
 
-function get_all_rows_where_parent_id($folder_id)
+function get_all_folders_where_parent_id($folder_id)
 {
 	$fields = array("parent_id");
     $values = array($folder_id);

@@ -110,8 +110,8 @@
           
           <ul>
           
-             <li  id="li_title">Update: <?PHP echo $update_id ?></li> 
-             <li id="li_tagged">
+             <li  class = "li_title" id="li_title_<?PHP echo $update_id ?>">Update: <?PHP echo $update_id ?></li> 
+             <li class="li_tagged">
 				 <?php
                         //loop through all tags for this update
 						while($tags_row=mysql_fetch_assoc($tags_results))
@@ -125,8 +125,8 @@
                 ?>             
              </li>
 			 
-             <li id = "li_text"><?php echo $row['details']?></li> 
-             <li id="li_dev"><?= $update_creator_username ?></li>
+             <li class = "li_text"><?php echo $row['details']?></li> 
+             <li class="li_dev"><?= $update_creator_username ?></li>
           </ul>
            <p></p>
     

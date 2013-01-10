@@ -17,7 +17,7 @@ body {
 .float_breaker{
 clear:both;	
 }
-#li_title{
+.li_title{
 
 	background:#AEAEFF;
 	width:100%;
@@ -26,7 +26,7 @@ clear:both;
 	padding:0px;
 
 }
-#li_tagged{
+.li_tagged{
 	color:#F03;
 	background-color:#fff;
 	list-style:none;
@@ -36,7 +36,7 @@ clear:both;
 	
 }
 
-#li_text{
+.li_text{
 	list-style:none;
 	text-align:left;
 	width:100%;
@@ -46,7 +46,7 @@ clear:both;
 	
 	
 }
-#li_dev{
+.li_dev{
 	list-style:none;
 	margin:0px;
 	padding:0px;

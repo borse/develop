@@ -113,10 +113,28 @@ include('minicode/menu.php');
               
               
                
-         
+              <div id="svgbasics">
+                        </div>
+                         
+                        <div id="pnlAllIn" style="z-index: 10;"> 
+                            </div> 
  <div id="draw_map">
    
   </div>
+   <div id="dialog" title="Reset persons mapping?" style="z-index: 10;">
+        <p>
+            <span class="ui-icon ui-icon-alert"></span>Do you wish to delete all connection
+            resetting the mapping to it's original positions?</p>
+    </div>
+    <div id="dialogMappingResult" title="Current Mapping" style="z-index: 10;">
+        <p>
+            Here is a list of the current mapping:
+        </p>
+        <ul style="list-style: none;">
+            <li>No mapping was done yet</li></ul>
+    </div>
+    <a id="popButton" href="#" style="z-index: 10;">reset mapping</a> <a id="getMappings"
+        href="#" style="z-index: 10;">show mapping</a>
     
     
    

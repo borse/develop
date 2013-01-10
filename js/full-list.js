@@ -21,11 +21,11 @@ var ico_userNormal  = 'icons/user-48x48.png',
 $(document).ready(function () {
 	
 	
- draw_map(1);
+  draw_map($('#select_site').val());
 	
 	//when a new site is selected
 	$('#select_site').change(function() {
-  draw_map();
+   draw_map($('#select_site').val());
 });
 	 
 
@@ -239,13 +239,15 @@ function random(range) {
 
 function draw_map(folder_id)
 {
-	 
+			//delete all lines
+	 		 //svg.clear();
 	 		//url for ajax function,, 
 			url =  "functions/full-list/draw_map.php";
 			 /* Send the data using post and put the results in a div */
+			var  site_id=$('#select_site').val();
 			 
 	   
-		  $.post( url, { folder_id:folder_id },
+		  $.post( url, {  folder_id:folder_id,site_id:site_id},
 				function( data ) {
 			 // var content = $( data ).find( '#content' );
 			  //$( "#result" ).empty().append( content );
@@ -255,6 +257,8 @@ function draw_map(folder_id)
 			  
 				}//end of function
 			);//end of post	
+			
+			//svgDrawLine($('#folder_3'), $('#folder_5'));
 }
 // random colors are not that random after all
 var colours = ["purple", "red", "orange", "yellow", "lime", "green", "blue", "navy", "black"];
