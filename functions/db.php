@@ -341,6 +341,23 @@ function 	get_folder_path($folder_id)
     return false;
 }//end of function 	get_folder_path($folder_id)
 
+function get_folder_name($folder_id)
+{
+	 $fields = array("folder_id");
+    $values = array($folder_id);
+    $row = get("folders", $fields, $values);
+    if($row)
+    {
+        return $row['name'];
+    }
+	else
+	{
+	echo  mysql_error();
+	exit	;
+	}
+    return false;
+	
+}//end get_folder_name($folder_id)
 
 
 function get_folder_id_using_path_and_folder_name($folder,$path)

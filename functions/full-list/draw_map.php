@@ -5,10 +5,10 @@
 	include('../general.php');
 	$folder_id= $_POST['folder_id'];
 	$site_id= $_POST['site_id'];
-	
+
 	//draw path as text--del later
 	$path=get_folder_path($folder_id);
-	
+
 	echo $path,'<br />';
 
 	//add selected folder to the path array
@@ -19,24 +19,24 @@
  	
 	//reverse the path order.. to be  grandparent/parent/folder .. instead of folder/parent/grandparent
  	$path_array=array_reverse($path_array);
-	
-	
+
+
 
 	echo'<br />';
 	print_r($path_array);
 
-	
-	
+
+
 	//this folder seperates folders names within the path, whenever '/' is found ... returns ARRAY of foldernames
 	   $folder_names = explode("/", $path);
-	  
+
 	  //draw tables.. root folder.. then loop of wtv is inside it 
 	  draw_map($path_array,$site_id);
-	  
+
 	  //connect all folders withen the path
 	 // draw_lines($path_array,$site_id);
-	  
-	  
+
+
 	  function draw_map($path_array,$site_id)
 	  {
  
@@ -49,12 +49,12 @@
                 
                 							<?php 
                                       
-											   
+
 											   //get root folder row
 											   $fields = array("folder_id");
 											   $values = array($site_id);
 											   $row = get("folders", $fields, $values);
-										 
+
 										 		//draw the site root folder:  
 											   ?>
                                                       <td style="width: 50%; vertical-align: top;">
@@ -101,7 +101,7 @@
                                                                 if(get_all_folders_where_parent_id($folder_id))
 																{
 																	    $rows=get_all_folders_where_parent_id($folder_id);
-															
+
                                                                 ?>
                                                                  <td style="width: 50%; vertical-align: top;">
                                                                 <?php
@@ -151,7 +151,93 @@
                                                                     <?php									
                                                                 }//end of foreach($rows as $row)
                                                                     
+																	//after folders , display pages
+																	?>
+                                                                    	<div 
+                                                                                   
+                                                                                    class="div_pages" id="pages_ <?='folder_id'?>"
+                                                                                       >
+                                                                                        <table cellspacing="0" cellpadding="0" style="width: 100%;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="width: 50px; text-align: center;" rowspan="2">
+                                                                                                        <img alt="" src="icons/user-48x48.png" />
+                                                                                                    </td>
+                                                                                                    <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
+                                                                                                         Pages inside <b style="color:#903"><?=get_folder_name($row['parent_id'])?> </b>
+                                                                                                    </td>
+                                                                                                    <td style="text-align: right; vertical-align: top; width: 16px;" rowspan="2">
+                                                                                                        
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-size: 0.9em; text-align: left;">
+                                                                                                         <a>insert page</a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr >
+                                                                                                <td>
+                                                                                                <div style="height:100%;">
+                                                                                                      <br/>      
+                                                                                                <div id="get pages">
+                                                                                                </div>
+
+                                                                                                </div>
+                                                                                                <td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <input type="hidden" value="<?=$row['folder_id']?>" />
+                                                                                    </div>    
+                                                                          
+                                                                    <?php
                                                                  	}//end if
+																	//if no folders are found, then display pages
+																	else
+																	{?>
+                                                                    <td style="width: 50%; vertical-align: top;">
+                                                                         
+                                                                                
+                                                                                 <div 
+                                                                                   
+                                                                                    class="div_pages" id="pages_ <?='folder_id'?>"
+                                                                                       >
+                                                                                        <table cellspacing="0" cellpadding="0" style="width: 100%;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="width: 50px; text-align: center;" rowspan="2">
+                                                                                                        <img alt="" src="icons/user-48x48.png" />
+                                                                                                    </td>
+                                                                                                    <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
+                                                                                                         Pages inside <b style="color:#903"><?=get_folder_name($folder_id)?> </b>
+                                                                                                    </td>
+                                                                                                    <td style="text-align: right; vertical-align: top; width: 16px;" rowspan="2">
+                                                                                                        
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-size: 0.9em; text-align: left;">
+                                                                                                         <a>insert page</a>
+                                                                                                       </td>
+                                                                                                </tr>
+                                                                                                <tr >
+                                                                                                <td>
+                                                                                                <div style="height:100%;">
+                                                                                                      <br/>      
+                                                                                                <div id="get pages">
+                                                                                                </div>
+
+                                                                                                </div>
+                                                                                                <td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <input type="hidden" value="<?=$row['folder_id']?>" />
+                                                                                    </div>    
+                                                                          
+                                                                         </td>
+																		<?php
+																	}//end of else
                                                               //new field
                                                                 ?>
                                                                  </td>
@@ -166,11 +252,11 @@
                                 </table>
 				<?php
 	  }//end of drawmap<br />
-	  
-	  
-	  
-	  
-	  
+
+
+
+
+
 	  function draw_lines($path_array,$site_id)
 	  {
 		  $lines =array($sources=array());
@@ -182,31 +268,31 @@
 				continue;
 			}//end if	
 				//for each colum, find the targets of the folder
-				
+
 		 		if(get_all_folders_where_parent_id($folder))
 				{
 					$targets=get_all_folders_where_parent_id($folder);
 						foreach($targets as $target)
 					{
 						 //add line  folder=>target
-						 
-						 
-						
-						
+
+
+
+
 						$lines[$folder]= array ($target['folder_id']);
-						
+
 					}//end foreach
 				}//end if
-				
+
 				//draw a line from folder to each target
-			
-				
+
+
 				echo 'Abc..';
-			
+
 		  }//end of foreach
-		  
+
 		  print_r($lines);
 	  }//end of function draw_linmes
-	  
-	  
+
+
    ?>

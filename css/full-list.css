@@ -89,6 +89,17 @@ th {
 		}
 		
 		
+.div_pages
+{
+	overflow:scroll;
+	 padding: 10px;
+	  height:180px; 
+	  width: 216px; 
+	  margin-bottom: 10px;
+       background-color:#C7CAFE;"  
+	
+	
+}
 #new_page{
 display:none;	
 }
