@@ -43,6 +43,7 @@ $(document).ready(function () {
             backgroundColor: '#000',
             opacity: 0.5
         },
+		
         buttons: {
             Close: function () {
                 $(this).dialog('close');

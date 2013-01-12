@@ -423,4 +423,19 @@ function get_all_folders_where_parent_id($folder_id)
     return false;
 }//end 			get_all_rows_where_parent_id($folder_id)
 
+function get_all_pages($folder_id)
+{
+	
+    $fields = array("folder_id");
+    $values = array($folder_id);
+    $rows = get_multi("pages", $fields, $values);
+    if($rows)
+    {
+		//return alot of results, this is an array
+        return $rows;
+    }
+    return false;
+	
+}//end of get_all_pages
+
 ?>

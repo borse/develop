@@ -100,6 +100,37 @@ th {
 	
 	
 }
+.div_pages ul li  {
+padding:0px;
+margin:0px;
+list-style:none;
+ 
+ text-align:left;
+ 
+	
+	
+}
+.div_pages ul li a{
+padding:0px;
+margin:0px;
+list-style:none;
+ 
+font:   "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size:14px;
+text-align:left;
+color:#400143;
+	
+	
+}
+.div_pages li a:hover{
+background:#000;
+color:#FFF;
+cursor:pointer;
+
+
+	
+	
+}
 #new_page{
 display:none;	
 }

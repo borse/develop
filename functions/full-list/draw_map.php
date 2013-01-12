@@ -161,7 +161,7 @@
                                                                                             <tbody>
                                                                                                 <tr>
                                                                                                     <td style="width: 50px; text-align: center;" rowspan="2">
-                                                                                                        <img alt="" src="icons/user-48x48.png" />
+                                                                                                        <img alt="" src="icons/paper.png" />
                                                                                                     </td>
                                                                                                     <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
                                                                                                          Pages inside <b style="color:#903"><?=get_folder_name($row['parent_id'])?> </b>
@@ -176,18 +176,35 @@
                                                                                                     </td>
                                                                                                 </tr>
                                                                                                 <tr >
-                                                                                                <td>
-                                                                                                <div style="height:100%;">
+                                                                                                <td colspan="2" style="width=100%">
+                                                                                                <div style="height:100%; width:">
                                                                                                       <br/>      
                                                                                                 <div id="get pages">
                                                                                                 </div>
-
-                                                                                                </div>
-                                                                                                <td>
-                                                                                                </tr>
+																									 <ul>
+                                                                                                <?php
+																									//get all pages and save them in rows
+																									if($rows=get_all_pages($folder_id))
+																									{
+																										
+																										//print every page
+																										foreach($rows as $row)
+																										{
+																											?>
+																											<li><a> <?= $row['name']?></a></li>
+																											<?php																										
+																										}//end of foreach
+																									}else
+																									{
+																									echo "no page found"	;
+																									}//end of else
+																									
+																								?>
+                                                                                                </ul>
+                                                                                                </div>                                                                                                </tr>
                                                                                             </tbody>
                                                                                         </table>
-                                                                                        <input type="hidden" value="<?=$row['folder_id']?>" />
+                                                                    <input type="hidden" value="<?=$row['folder_id']?>" />
                                                                                     </div>    
                                                                           
                                                                     <?php
@@ -206,7 +223,7 @@
                                                                                             <tbody>
                                                                                                 <tr>
                                                                                                     <td style="width: 50px; text-align: center;" rowspan="2">
-                                                                                                        <img alt="" src="icons/user-48x48.png" />
+                                                                                                        <img alt="" src="icons/paper.png" />
                                                                                                     </td>
                                                                                                     <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
                                                                                                          Pages inside <b style="color:#903"><?=get_folder_name($folder_id)?> </b>
@@ -218,18 +235,35 @@
                                                                                                 <tr>
                                                                                                     <td style="font-size: 0.9em; text-align: left;">
                                                                                                          <a>insert page</a>
-                                                                                                       </td>
+                                                                                                    </td>
                                                                                                 </tr>
                                                                                                 <tr >
-                                                                                                <td>
-                                                                                                <div style="height:100%;">
+                                                                                                <td colspan="2" style="width=100%">
+                                                                                                <div style="height:100%; width:">
                                                                                                       <br/>      
                                                                                                 <div id="get pages">
                                                                                                 </div>
-
-                                                                                                </div>
-                                                                                                <td>
-                                                                                                </tr>
+																									 <ul>
+                                                                                                <?php
+																									//get all pages and save them in rows
+																									if($rows=get_all_pages($folder_id))
+																									{
+																										
+																										//print every page
+																										foreach($rows as $row)
+																										{
+																											?>
+																											<li><a> <?= $row['name']?></a></li>
+																											<?php																										
+																										}//end of foreach
+																									}else
+																									{
+																									echo "no page found"	;
+																									}//end of else
+																									
+																								?>
+                                                                                                </ul>
+                                                                                                </div>                                                                                                </tr>
                                                                                             </tbody>
                                                                                         </table>
                                                                                         <input type="hidden" value="<?=$row['folder_id']?>" />
