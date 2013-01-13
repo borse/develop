@@ -83,7 +83,14 @@ color:#09F;
 .info b:hover{
 	cursor:pointer;
 	
+ 
+	 background-color:#A8CAFD;
+
+}
+info b a:hover{
+	cursor:pointer;
 	
+	text-decoration:none;
 	 background-color:#A8CAFD;
 
 }
@@ -97,7 +104,7 @@ color:#09F;
  }
  
  #div_print_table{
-	background-color:#FDCEAE;
+	background-color:#DADADA;
     width:60%;
     padding: 10px;
   	height:200px;
@@ -112,9 +119,10 @@ color:#09F;
 		 
 		 }
 #div_static_area ul li{
-	cursor:pointer;
+	 
 	list-style:none;
 	width:25%;
+	text-decoration:none;
 	 
 	
 }
@@ -123,16 +131,23 @@ background-color:#A8CAFD;
 	
 }
 
+#div_static_area ul li a {
+    cursor: pointer;
+   
+    text-decoration: none;
+}
+
 #div_notification_table{
 	 background-color:#FDCEAE;
     width:100%;
-    padding: 10px;
+    padding: 0px;
 	
 }
 #div_unread_notifications_table{
-	background-color:#FFA8A8;
+	background-color:#000;
     width:100%;
     padding: 10px;
+	color:#fff;
 }
  #div_dynamic_area{
 	 margin:10px;

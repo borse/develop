@@ -3,7 +3,7 @@
 
 
 load_unread_notifications();
-populate_recent_notification_table();
+//populate_recent_notification_table();
  //Variables: =============================================== --- VARIABLES--- =======================================
 
 
@@ -12,7 +12,7 @@ populate_recent_notification_table();
 window.setInterval(function(){
   /// call your function here
  // $('#div_print_table').html("");
-populate_recent_notification_table();
+//populate_recent_notification_table();
   load_unread_notifications();
 }, 5000);
 

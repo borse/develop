@@ -4,7 +4,7 @@
 
 
 	include('functions/general.php');
-	include('functions/full-list/full-list.php');
+	include('functions/full-list/old-full-list.php');
 
 	include('functions/connect_db.php');
 	//=============================== TO-DO ID= 18===============================

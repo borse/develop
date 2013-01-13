@@ -438,4 +438,19 @@ function get_all_pages($folder_id)
 	
 }//end of get_all_pages
 
+//get tasks with this page ID
+function tasks_in_page($page_id)
+{
+	 $fields = array("page_id");
+    $values = array($page_id);
+    $rows = get_multi("to_do", $fields, $values);
+    if($rows)
+    {
+		//return alot of results, this is an array of rows
+        return $rows;
+    }
+    return false;
+	
+}//end of tasks_in_page(id);
+
 ?>

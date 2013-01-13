@@ -261,5 +261,57 @@ function draw_map(folder_id)
 			
 			//svgDrawLine($('#folder_3'), $('#folder_5'));
 }
+
+//functions for popup{===============
+	
+		//close popup when "close" is clicked	
+	  $('#popupBoxClose').click( function() {            
+            unloadPopupBox();
+        });
+        
+		//close popup, when the background outside of the popup is clicked
+       $('#mask').click( function() {            
+            unloadPopupBox();
+        });
+
+		//function to close/hide the popup
+        function unloadPopupBox() {    // TO Unload the Popupbox
+           
+		    $('#popup_box').fadeOut("slow");
+			
+          //fade out the mask background, then remove it
+		   $('#mask').fadeOut(300 , function() {
+			$('#mask').remove();  
+	}); 
+        }    
+        
+		// show popup
+        function loadPopupBox(action,id) {    // To Load the Popupbox
+           
+		   url =  "functions/full-list/popup_box.php";
+			 /* Send the data using post and put the results in a div */
+		 
+			 
+	   		//fill popup
+		  $.post( url, {  action:action,id:id},
+				function( data ) {
+			 
+			   
+			  $('#popup_box_content').html(data);
+			   
+			  
+				}//end of function
+			);//end of post	
+		   
+		   
+		   //show popup
+		    $('#popup_box').fadeIn("slow");
+			//draw background mask.. mask options are in css
+			$('body').append('<div id="mask"></div>');
+			$('#mask').fadeIn(300);
+        }        
+	
+	
+	//}. end of popup functions==========
 // random colors are not that random after all
 var colours = ["purple", "red", "orange", "yellow", "lime", "green", "blue", "navy", "black"];

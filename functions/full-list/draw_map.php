@@ -191,7 +191,7 @@
 																										foreach($rows as $row)
 																										{
 																											?>
-																											<li><a> <?= $row['name']?></a></li>
+																											<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?> )"> <?= $row['name']?></a></li>
 																											<?php																										
 																										}//end of foreach
 																									}else
@@ -253,7 +253,8 @@
 																										foreach($rows as $row)
 																										{
 																											?>
-																											<li><a> <?= $row['name']?></a></li>
+																												<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?> )"> <?= $row['name']?></a></li>
+                                                                                                            
 																											<?php																										
 																										}//end of foreach
 																									}else

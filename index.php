@@ -4,7 +4,7 @@
 
 
 	include('functions/general.php');
-	include('functions/full-list/full-list.php');
+	include('functions/full-list/old-full-list.php');
 	
 	include('functions/db.php');
 
@@ -75,8 +75,8 @@ include('minicode/menu.php');
      <div id="div_unread_notifications_table">
  			       
       </div>
-        
-     <p>Recent notifications:</p>
+        <!-- this div is deactivated for now .  <p>Recent notifications:</p>.  -->
+    
      <div id="div_notification_table">
  			       
       </div>
