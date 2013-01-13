@@ -121,7 +121,7 @@ info b a:hover{
 #div_static_area ul li{
 	 
 	list-style:none;
-	width:25%;
+	width:23%;
 	text-decoration:none;
 	 
 	
@@ -162,4 +162,45 @@ background-color:#A8CAFD;
  .buffer{
 	 display:none;
  }
+ 
+ 
+ /* this area is for the print table menu*/
+
+
+.horizontal-nav {
+    background: #efefef;
+    border-radius: 6px;
+}
+.horizontal-nav ul {
+    background: #000;
+    float: left;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #fff;
+}
+.horizontal-nav ul li {
+    float: left;
+    border-left: 1px solid #fff;
+	list-style:none;
+	text-align:center;
+}
+.horizontal-nav ul li:first-child {
+    border-left: 0 none;
+}
+.horizontal-nav ul li a {
+    display: block;
+    padding: 5% 25%;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255, 0.25);
+    border-left: 1px solid rgba(255,255,255, 0.25);
+}
+.horizontal-nav ul li:first-child a {
+    border-left: 0 none;
+}
+.horizontal-nav ul li a:hover {
+    background: #FFF;
+	color:#000;
+}
+
+      
  

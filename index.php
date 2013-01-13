@@ -55,13 +55,21 @@ include('minicode/menu.php');
 <div id="div_main_body">
 	<div id="div_static_area" >
     
-    	<ul>
-        <li><a onclick="load_created_tasks()">Tasks created by me</a> </li>
-         <li><a onclick="load_created_tags(400)"> Tags created by me</a></li>
-         <li><a onclick="load_notifications(400)">Notifications from otheres</a></li>
-         <li><a onclick="clear_div_print_table()"> Hide</a> </li>
-         </ul>
+    	 <nav class="horizontal-nav full-width horizontalNav-notprocessed">
      
+     		   <ul>
+        
+        
+                    <li><a onclick="load_created_tasks()">Tasks Created</a> </li>
+                     <li><a onclick="load_created_tags(400)"> Tags Created</a></li>
+                     <li><a onclick="load_notifications(400)">Notifications	 </a></li>
+                     <li><a onclick="clear_div_print_table()"> Hide</a> </li>
+                     </ul>
+             
+   			 </ul>
+        </nav>
+		<p class="float_breaker"></p>
+		<p id="p_nav_clicked"> Select an Option from above</p>
         <div id="div_print_table">
  			       
         </div>

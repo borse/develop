@@ -16,12 +16,17 @@
 	break;
 	
 	case "add_page":
+	add_page($id);
+	  
+	break;
 	
-	 unset($_SESSION['cart'][$product_id]); //if the quantity is zero, remove it completely (using the 'unset' function) - otherwise is will show zero, then -1, -2 etc when the user keeps removing items.
+	case "add_folder":
+	add_folder($id);
+	  
 	break;
 	
 	case "add_task":
-	unset($_SESSION['cart']); //unset the whole cart, i.e. empty the cart.
+	 add_task($id);
 	break;
 	
 	}
@@ -41,5 +46,18 @@ function print_all_tasks($rows)
 	echo '</ul>';
 }//end of function print_all_tasks
 
+function add_page($id)
+{
+	
+}//end of add_page
 
+function add_folder($id)
+{
+	
+}//end of add_folder
+
+function add_task($id)
+{
+	
+}//end of add_task
 ?>

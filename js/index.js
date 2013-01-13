@@ -3,6 +3,10 @@
 
 
 load_unread_notifications();
+  
+    // Call horizontalNav on the navigations wrapping element
+    $('.full-width').horizontalNav({});
+ 
 //populate_recent_notification_table();
  //Variables: =============================================== --- VARIABLES--- =======================================
 
@@ -54,7 +58,7 @@ function load_created_tasks()
 	 		//url for ajax function,, 
 			url =  "functions/index/load_created_tasks.php";
 			 /* Send the data using post and put the results in a div */
-	   
+	   		$('#p_nav_clicked').html("you have created the following tasks:");
 		  $.post( url, {  },
 				function( data ) {
 			 // var content = $( data ).find( '#content' );
@@ -78,7 +82,7 @@ function load_created_tags(counter)
 			 /* Send the data using post and put the results in a div */
 	   //show element after it has been loaded
 			
-			
+			$('#p_nav_clicked').html("you have tagged these people:");
 			//populate the table
 		  $.post( url, {counter:counter },
 				function( data ) {
@@ -130,7 +134,7 @@ function load_notifications(counter)
 			url =  "functions/index/load_notifications.php";
 			 /* Send the data using post and put the results in a div */
 	   //show element after it has been loaded
-			
+			$('#p_nav_clicked').html("These people tagged you in the following posts:");
 			
 			//populate the table
 		return  $.post( url, {counter:counter},
@@ -173,5 +177,6 @@ function load_unread_notifications()
 function clear_div_print_table()
 {  
 $('#div_print_table').html("");
+$('#p_nav_clicked').html("Select an Option from above");
  
 } //end of function clear_dive_print_table()
