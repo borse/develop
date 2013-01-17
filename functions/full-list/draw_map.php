@@ -80,7 +80,10 @@
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td style="font-size: 0.9em; text-align: left;">
-                                                                                                         <a>insert page</a>
+                                                                                                         <a onclick="loadPopupBox('add_page',<?= $row['folder_id']?>,<?=$site_id?> )">insert page</a>
+                                                                                                    </td>
+                                                                                                      <td style="font-size: 0.9em; text-align: left;">
+                                                                                                         <a onclick="loadPopupBox('add_folder',<?= $row['folder_id']?>,<?=$site_id?>)">insert folder</a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             </tbody>
@@ -141,8 +144,11 @@
                                                                                         </tr>
                                                                                         <tr>
                                                                                             <td style="font-size: 0.9em; text-align: left;">
-                                                                                                 <a>insert page</a>
+                                                                                                 <a onclick="loadPopupBox('add_page',<?= $row['folder_id']?>,<?=$site_id?>  )">insert page</a>
                                                                                             </td>
+                                                                                            <td style="font-size: 0.9em; text-align: left;">
+                                                                                                         <a onclick="loadPopupBox('add_folder',<?= $row['folder_id']?>,<?=$site_id?>)">insert folder</a>
+                                                                                                    </td>
                                                                                         </tr>
                                                                                     </tbody>
                                                                                 </table>
@@ -172,7 +178,7 @@
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td style="font-size: 0.9em; text-align: left;">
-                                                                                                         <a>insert page</a>
+                                                                                                         <a onclick="loadPopupBox('add_page',<?= $row['parent_id']?>,<?=$site_id?>  )">insert page</a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                                 <tr >
@@ -191,7 +197,7 @@
 																										foreach($rows as $row)
 																										{
 																											?>
-																											<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?> )"> <?= $row['name']?></a></li>
+																											<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?>,<?=$site_id?>  )"> <?= $row['name']?></a></li>
 																											<?php																										
 																										}//end of foreach
 																									}else
@@ -234,7 +240,7 @@
                                                                                                 </tr>
                                                                                                 <tr>
                                                                                                     <td style="font-size: 0.9em; text-align: left;">
-                                                                                                         <a>insert page</a>
+                                                                                                         <a onclick="loadPopupBox('add_page',<?=$folder_id?> )">insert page</a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                                 <tr >
@@ -253,7 +259,7 @@
 																										foreach($rows as $row)
 																										{
 																											?>
-																												<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?> )"> <?= $row['name']?></a></li>
+																												<li><a onclick="loadPopupBox('open_page',<?= $row['page_id']?>, <?=$site_id?> )"> <?= $row['name']?></a></li>
                                                                                                             
 																											<?php																										
 																										}//end of foreach

@@ -22,6 +22,16 @@ $(document).ready(function () {
 	
 	
   draw_map($('#select_site').val());
+	//events-====================================events==============
+	
+	$("#form3").submit(function(event) {
+	
+	// alert('FUCK OFF!, IM NOT YOUR SLAVE!');
+	 //prevent devault action of button
+	 event.preventDefault();
+	 
+	   alert("form disabled");
+	});//end of event  	$("#form1").submit(function(event) {
 	
 	//when a new site is selected
 	$('#select_site').change(function() {
@@ -185,6 +195,8 @@ $(document).ready(function () {
 
 });
 
+	//functions-====================================functions==============
+
 function svgClear() {
     svg.clear();
 }
@@ -286,14 +298,14 @@ function draw_map(folder_id)
         }    
         
 		// show popup
-        function loadPopupBox(action,id) {    // To Load the Popupbox
+        function loadPopupBox(action,id,site_id) {    // To Load the Popupbox
            
 		   url =  "functions/full-list/popup_box.php";
 			 /* Send the data using post and put the results in a div */
 		 
 			 
 	   		//fill popup
-		  $.post( url, {  action:action,id:id},
+		  $.post( url, {  action:action,id:id,site_id:site_id},
 				function( data ) {
 			 
 			   

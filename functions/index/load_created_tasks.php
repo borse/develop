@@ -7,7 +7,7 @@
 	
 	$deveolper_id= $_SESSION['SESS_MEMBER_ID'];
 	//sellect task title and id, from tasks,  where the dev_id= logged in user
-	$query="SELECT title,to_do_id FROM to_do WHERE devolper_id= '$deveolper_id'";
+	$query="SELECT title,to_do_id FROM to_do WHERE developer_id= '$deveolper_id'";
 	
 	//run query
 	if(!$results= mysql_query($query,$db_link))

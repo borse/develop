@@ -453,4 +453,134 @@ function tasks_in_page($page_id)
 	
 }//end of tasks_in_page(id);
 
+
+function add_page_to_table()
+{	
+		include("connect_db.php");
+			 
+	//save inserted page name into var name
+	$name= clean($_POST['textfield2']); //check for erros later
+		$folder_id= $_POST['folder_id'];
+	
+	// check of new inserted page name exists or not
+	$query="SELECT * FROM pages WHERE name='$name'";
+	
+	//run query
+	if(!$results= mysql_query($query,$db_link))
+	{
+		return 'query error 1';
+		exit();
+	}//end of if
+	
+	if($row=mysql_fetch_assoc($results))
+	{
+		return 'error: page already exists';
+	}else // no such page. create a new one
+	 {
+		 
+		  $fields = array("name", "folder_id", );
+		  $values = array($name,$folder_id );
+
+		if(! add("pages", $fields, $values))
+		{
+			return  'query error 2';
+			 
+		}else
+		 {
+			return $name.' added!';
+		 }//end of else
+		
+	 }//end of else
+}//end of add_pages_to_table
+
+
+function add_folder_to_table()
+{	
+		include("connect_db.php");
+			 
+	//save inserted page name into var name
+	$name= clean($_POST['textfield2']); //check for erros later
+		$parent_id= $_POST['parent_id'];
+		$site_id= $_POST['site_id'];
+	
+	// check of new inserted page name exists or not
+	$query="SELECT * FROM folders WHERE name='$name'";
+	
+	//run query
+	if(!$results= mysql_query($query,$db_link))
+	{
+		return 'query error 1';
+		exit();
+	}//end of if
+	
+	if($row=mysql_fetch_assoc($results))
+	{
+		return 'error: folder already exists';
+	}else // no such page. create a new one
+	 {
+		 
+		 //get site id, using parent_id
+		 
+		  $fields = array("name", "parent_id","site_id" );
+		  $values = array($name,$parent_id ,$site_id);
+
+		if(! add("folders", $fields, $values))
+		{
+			return  'query error 2';
+			 
+		}else
+		 {
+			return $name.' created!';
+		 }//end of else
+		
+	 }//end of else
+}//end of add_pages_to_table
+
+	
+function add_task_to_table()
+{	
+		
+		session_start();		
+	 	 
+		//save form into vars
+		$title= clean($_POST['textfield']);
+		$page_id= $_POST['page_id'];
+		$details= clean($_POST['to_do_details']);
+		//set done to default false
+		$done=0;
+		$developer_id=$_SESSION['SESS_MEMBER_ID'];
+		
+		  $fields = array("page_id", "developer_id","title" ,"details","done");
+		  $values = array($page_id,$developer_id ,$title,$details,$done);
+
+		if(! add("to_do", $fields, $values))
+		{
+			return  'query error 2';
+			 
+		}else
+		 {
+			return $title.' created!';
+		 }//end of else
+		
+		
+		
+	 
+			 
+	 
+				 
+}//end post_new_to_do
+
+function get_site_id($folder_id)
+{
+	 $fields = array("folder_id");
+    $values = array($folder_id);
+    $row = get("folders", $fields, $values);
+    if($row)
+    {
+        return $row['site_id'];
+    }
+    return false;
+	
+}//end get_site_id
 ?>
+   

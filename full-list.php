@@ -6,9 +6,10 @@
 
 
 	 
-	include('functions/full-list/old-full-list.php');
+	//include('functions/full-list/old-full-list.php');
 	include('functions/general.php');
 	include("functions/db.php");
+	
 
 	include('functions/connect_db.php');
 	//=============================== TO-DO ID= 18===============================
@@ -25,22 +26,45 @@
 	//check if $_post Page form
 	if(isset($_POST['new_page']))
 	{	
-		post_new_page();
+		?>
+				<script type="text/javascript">
+			        window.alert("<?=add_page_to_table()?>")
+				</script>
+        			 
+		<?php
 		
 	
 	}//end of $_POST[ if-------------------
 	
 	
-	//check if $_post TO DO form
-	if(isset($_POST['new_to_do']))
-	{
-		post_new_to_do();
+		if(isset($_POST['new_to_do']))
+	{	
+		?>
+			 
+                	<script type="text/javascript">
+			     	   window.alert("<?=add_task_to_table()?>")
+					</script>
+				 
+		<?php
 		
-		
-	}//end of $_POST[ new to do IF
 	
-	
+	}//end of $_POST[ if-------------------
  
+	//proccess page data if  new folder submited
+	//check if $_post folder  form
+	if(isset($_POST['new_folder']))
+	{	
+		?>
+				<script type="text/javascript">
+					window.alert("<?=add_folder_to_table()?>")
+				</script>
+				 
+		<?php
+		
+	
+	}//end of $_POST[ if-------------------
+	
+	 
 	
  
  
