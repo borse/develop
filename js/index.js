@@ -1,5 +1,14 @@
 // JavaScript Document
- 
+ //object ,  http://www.youtube.com/watch?feature=player_detailpage&v=9s733mQqxgE#t=432s
+ var res=
+  {
+	  //create an empty div.. class = "div_animation_loader"
+	  loader: $('<div />',{class: 'div_animation_loader'}),
+		
+		//select the container of this div
+	  container: $('#div_print_table') 
+	  
+ }//end of res
 
 
 load_unread_notifications();
@@ -54,21 +63,32 @@ function notification_clicked(tag_id)
 function load_created_tasks()
 {
 	 
-	 
-	 		//url for ajax function,, 
-			url =  "functions/index/load_created_tasks.php";
-			 /* Send the data using post and put the results in a div */
-	   		$('#p_nav_clicked').html("you have created the following tasks:");
-		  $.post( url, {  },
-				function( data ) {
-			 // var content = $( data ).find( '#content' );
-			  //$( "#result" ).empty().append( content );
-			   
-			  $('#div_print_table').html(data);
-			   
-			  
-				}//end of function
-			);//end of post	
+	 		
+	 		 
+		 
+			 /* Send the data using ajax  and put the results in a div */
+	   		
+		  $.ajax({
+						  url:  "functions/index/load_created_tasks.php",
+							
+							beforeSend: function()
+							 {
+								 
+								 $('#p_nav_clicked').html("you have created the following tasks:");
+								 //append container(print table).. and add res.loader to it.. 
+								 res.container.append(res.loader);
+								 
+								 
+							 },//end beforeSend
+							 
+							success: function(data)
+							 {
+								 //when this function is drawn..  the loader animation is removed automatically
+								 $('#div_print_table').html(data);
+							 }//end success
+						
+							  
+			   	});//end of ajax
 }//end of load_created_tasks
 
 
@@ -83,8 +103,13 @@ function load_created_tags(counter)
 	   //show element after it has been loaded
 			
 			$('#p_nav_clicked').html("you have tagged these people:");
+			//load animation:
+				 //append container(print table).. and add res.loader to it.. 
+								 res.container.append(res.loader);
+								 
+			
 			//populate the table
-		  $.post( url, {counter:counter },
+					  $.post( url, {counter:counter },
 				function( data ) {
 			 // var content = $( data ).find( '#content' );
 			  //$( "#result" ).empty().append( content );
@@ -93,6 +118,10 @@ function load_created_tags(counter)
 			  
 				}//end of function
 			);//end of post	
+			
+			
+			
+			
 		 
 			
 			
@@ -135,6 +164,9 @@ function load_notifications(counter)
 			 /* Send the data using post and put the results in a div */
 	   //show element after it has been loaded
 			$('#p_nav_clicked').html("These people tagged you in the following posts:");
+			//load animation:
+				 //append container(print table).. and add res.loader to it.. 
+								 res.container.append(res.loader);
 			
 			//populate the table
 		return  $.post( url, {counter:counter},

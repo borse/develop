@@ -1,5 +1,6 @@
 // JavaScript Document
-
+//================================= Wrappers====================================
+ 
 //================================= ANIMATION FUNCTIONS===================
 
 function hide_element(element,speed)
@@ -11,6 +12,12 @@ function show_element(element,speed)
   {
 	  $('#'+element).show(speed);
   }//end of function_show element
+  
+  
+  function toggle_element(element,speed)
+  {
+	  $('#'+element).toggle(speed);
+  }//end of toggle_element element
   
   
   

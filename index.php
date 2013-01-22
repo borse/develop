@@ -33,7 +33,7 @@
 </style>
 </head>
 
-<body>
+<body id="body">
 
 <div id="div_menu">
 <?php
@@ -66,13 +66,13 @@ include('minicode/menu.php');
                      <li><a onclick="clear_div_print_table()"> Hide</a> </li>
                      </ul>
              
-   			 </ul>
-        </nav>
+   			 </ul> 
+  </nav>
 		<p class="float_breaker"></p>
 		<p id="p_nav_clicked"> Select an Option from above</p>
         <div id="div_print_table">
- 			       
-        </div>
+            
+ 	   </div>
         
         
      </div>
