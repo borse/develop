@@ -6,6 +6,7 @@
 	$id= $_POST['id'];
 	$action= $_POST['action'];
 	$site_id=$_POST['site_id'];
+	
 
 	 switch($action) {	//decide what to do
 	

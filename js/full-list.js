@@ -34,9 +34,45 @@ $(document).ready(function () {
 	});//end of event  	$("#form1").submit(function(event) {
 	
 	//when a new site is selected
+	
 	$('#select_site').change(function() {
-   draw_map($('#select_site').val());
-});
+		
+		//get the folder id of the selected site
+		
+		
+		//url for ajax function,, 
+			url =  "functions/full-list/get_folder_id_of_site.php";
+			  
+	   		var site_id = $('#select_site').val();
+				var folder_id=10;
+		  $.getJSON( url, {site_id:site_id},
+				function( data ) {
+			 // var content = $( data ).find( '#content' );
+			  //$( "#result" ).empty().append( content );
+			   
+			  	 //  $('#div_notification_table').html(data);
+				 
+				folder_id= data.folder_id;
+				
+				 
+				 
+				  
+			   
+			  
+				}//end of function
+			).complete(function() { 
+			 
+			
+			 draw_map(folder_id);
+			
+			 });//end of json
+		
+   	
+			
+	
+	
+	
+});//end of ('#select_site').change
 	 
 
     // set up the drawing area from Body of the document

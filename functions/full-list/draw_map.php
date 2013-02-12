@@ -5,6 +5,12 @@
 	include('../general.php');
 	$folder_id= $_POST['folder_id'];
 	$site_id= $_POST['site_id'];
+	
+	//this is a dirty fix:
+	 $site_id=get_folder_id_from_sites($site_id);
+	 
+	  
+
 
 	//draw path as text--del later
 	$path=get_folder_path($folder_id);
@@ -57,41 +63,41 @@
 
 										 		//draw the site root folder:  
 											   ?>
-                                                      <td style="width: 50%; vertical-align: top;">
-                                                                         
+                                       <td style="width: 50%; vertical-align: top;">
+                                                          
+                                                                 
+                                                           <div 
+                                                           style="border: 2px solid gray; padding: 10px; width: 200px; margin-bottom: 10px;
+                                                                     background-color:#FFD3B7;"  
+                                                            class="ui-corner-all draggable ui-draggable" id="folder_<?=$site_id?>"
+                                                            onclick="draw_map(<?=$site_id?>)"  >
+                                                                <table cellspacing="0" cellpadding="0" style="width: 100%;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="width: 50px; text-align: center;" rowspan="2">
+                                                                                <img alt="" src="icons/user-48x48.png" />
+                                                                            </td>
+                                                                            <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
+                                                                                 <?=$row['folder_id']?>=><?=$row['name'] ?> 
+                                                                            </td>
+                                                                            <td style="text-align: right; vertical-align: top; width: 16px;" rowspan="2">
                                                                                 
-                                                                                   <div 
-                                                                                   style="border: 2px solid gray; padding: 10px; width: 200px; margin-bottom: 10px;
-                                                                                             background-color:#FFD3B7;"  
-                                                                                    class="ui-corner-all draggable ui-draggable" id="folder_<?=$site_id?>"
-                                                                                    onclick="draw_map(<?=$site_id?>)"  >
-                                                                                        <table cellspacing="0" cellpadding="0" style="width: 100%;">
-                                                                                            <tbody>
-                                                                                                <tr>
-                                                                                                    <td style="width: 50px; text-align: center;" rowspan="2">
-                                                                                                        <img alt="" src="icons/user-48x48.png" />
-                                                                                                    </td>
-                                                                                                    <td style="font-size: 1.2em; font-weight: bold; text-align: left;">
-                                                                                                         <?=$row['folder_id']?>=><?=$row['name'] ?> 
-                                                                                                    </td>
-                                                                                                    <td style="text-align: right; vertical-align: top; width: 16px;" rowspan="2">
-                                                                                                        
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td style="font-size: 0.9em; text-align: left;">
-                                                                                                         <a onclick="loadPopupBox('add_page',<?= $row['folder_id']?>,<?=$site_id?> )">insert page</a>
-                                                                                                    </td>
-                                                                                                      <td style="font-size: 0.9em; text-align: left;">
-                                                                                                         <a onclick="loadPopupBox('add_folder',<?= $row['folder_id']?>,<?=$site_id?>)">insert folder</a>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                        <input type="hidden" value="<?=$row['folder_id']?>" />
-                                                                                    </div>    
-                                                                          
-                                                                         </td>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="font-size: 0.9em; text-align: left;">
+                                                                                 <a onclick="loadPopupBox('add_page',<?= $row['folder_id']?>,<?=$site_id?> )">insert page</a>
+                                                                            </td>
+                                                                              <td style="font-size: 0.9em; text-align: left;">
+                                                                                 <a onclick="loadPopupBox('add_folder',<?= $row['folder_id']?>,<?=$site_id?>)">insert folder</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <input type="hidden" value="<?=$row['folder_id']?>" />
+                                                            </div>    
+                                                           
+                                                          </td>
                 
                                                     <?php 
                                                      //draw rest of folders

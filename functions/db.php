@@ -2,7 +2,7 @@
 //creats conncetion to db_develop, returns $db_link 
 function get_conn_and_connect()
 {
-    $db_link = mysql_connect("localhost","1116075_db","SIlver");
+    $db_link = mysql_connect("127.0.0.1","1116075_db","SIlver");
     if (!$db_link)
       {
       	echo("cant connect to borse.com!");
@@ -323,6 +323,28 @@ function get_to_do_id_from_tags($tag_id)
     return false;
 }//end of function get_to_do_id_from_tags($tag_id)
 	
+	
+//get folder id, from sites
+function get_folder_id_from_sites($site_id)
+{
+	
+	 $fields = array("site_id");
+    $values = array($site_id);
+    $row = get("sites", $fields, $values);
+    if($row)
+    {
+        return $row['folder_id'];
+    }
+		else
+		{
+			echo  mysql_error();
+			exit	;
+		}
+    return false;	
+	 
+}//end get_folder_id_from_sites($site_id)
+
+
 //get path from table folders
 function 	get_folder_path($folder_id)
 {
@@ -463,7 +485,7 @@ function add_page_to_table()
 		$folder_id= $_POST['folder_id'];
 	
 	// check of new inserted page name exists or not
-	$query="SELECT * FROM pages WHERE name='$name'";
+	$query="SELECT * FROM pages WHERE name='$name' and folder_id='$folder_id'";
 	
 	//run query
 	if(!$results= mysql_query($query,$db_link))
@@ -503,8 +525,8 @@ function add_folder_to_table()
 		$parent_id= $_POST['parent_id'];
 		$site_id= $_POST['site_id'];
 	
-	// check of new inserted page name exists or not
-	$query="SELECT * FROM folders WHERE name='$name'";
+	// check if new inserted page name exists or not
+	$query="SELECT * FROM folders WHERE name='$name' and parent_id='$parent_id'";
 	
 	//run query
 	if(!$results= mysql_query($query,$db_link))
@@ -534,7 +556,7 @@ function add_folder_to_table()
 		 }//end of else
 		
 	 }//end of else
-}//end of add_pages_to_table
+}//end of add_folder_to_table
 
 	
 function add_task_to_table()

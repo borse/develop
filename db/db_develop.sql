@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2013 at 09:57 PM
+-- Generation Time: Feb 12, 2013 at 02:59 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `folders` (
   `parent_id` int(11) NOT NULL,
   `path` text NOT NULL,
   PRIMARY KEY (`folder_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `folders`
@@ -89,7 +89,13 @@ INSERT INTO `folders` (`folder_id`, `site_id`, `name`, `parent_id`, `path`) VALU
 (19, 2, 'js', 2, 'inter-rent/'),
 (20, 2, 'minicode', 2, 'inter-rent/'),
 (25, 1, 'css', 1, 'develop/'),
-(31, 1, 'full-list', 3, '');
+(31, 1, 'full-list', 3, ''),
+(32, 3, 'REAL-WEBSITE', 0, ''),
+(38, 32, 'css', 32, ''),
+(39, 32, 'functions', 32, ''),
+(40, 32, 'images', 32, ''),
+(41, 32, 'js', 32, ''),
+(42, 32, 'minicode', 32, '');
 
 -- --------------------------------------------------------
 
@@ -103,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `folder_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`page_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `pages`
@@ -128,12 +134,7 @@ INSERT INTO `pages` (`page_id`, `name`, `folder_id`, `timestamp`) VALUES
 (17, 'full-list.php', 1, '0000-00-00 00:00:00'),
 (18, 'intra-rent', 0, '2013-01-06 14:59:32'),
 (30, 'draw_map.php', 31, '2013-01-13 20:09:19'),
-(31, 'popup_box.php', 31, '2013-01-13 20:15:39'),
-(32, 'mahmood.html', 32, '2013-01-13 21:15:38'),
-(43, 'ssssss', 34, '2013-01-17 03:16:52'),
-(44, 'exac', 33, '2013-01-17 03:18:59'),
-(45, 'asfasf', 33, '2013-01-17 03:20:22'),
-(46, 'tf', 33, '2013-01-17 03:24:29');
+(31, 'popup_box.php', 31, '2013-01-13 20:15:39');
 
 -- --------------------------------------------------------
 
@@ -144,16 +145,18 @@ INSERT INTO `pages` (`page_id`, `name`, `folder_id`, `timestamp`) VALUES
 CREATE TABLE IF NOT EXISTS `sites` (
   `site_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
+  `folder_id` int(11) NOT NULL,
   PRIMARY KEY (`site_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `sites`
 --
 
-INSERT INTO `sites` (`site_id`, `name`) VALUES
-(1, 'Developing site'),
-(2, 'inter-rent');
+INSERT INTO `sites` (`site_id`, `name`, `folder_id`) VALUES
+(1, 'Developing site', 1),
+(2, 'inter-rent', 2),
+(3, 'REAL-WEBSITE!', 32);
 
 -- --------------------------------------------------------
 
@@ -170,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `tag_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isRead` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`tag_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=137 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=138 ;
 
 --
 -- Dumping data for table `tags`
@@ -310,7 +313,8 @@ INSERT INTO `tags` (`tag_ID`, `to_do_id`, `creator_dev_id`, `appointed_dev_id`, 
 (133, 59, 5, 5, 155, '2013-01-27 19:44:17', 0),
 (134, 59, 5, 5, 156, '2013-01-27 19:45:01', 0),
 (135, 59, 5, 5, 157, '2013-01-27 19:45:32', 0),
-(136, 59, 5, 5, 158, '2013-01-27 19:45:52', 0);
+(136, 59, 5, 5, 158, '2013-01-27 19:45:52', 0),
+(137, 48, 5, 5, 163, '2013-02-11 07:19:53', 0);
 
 -- --------------------------------------------------------
 
@@ -381,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `to_do_updates` (
   `details` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`update_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=163 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=164 ;
 
 --
 -- Dumping data for table `to_do_updates`
@@ -419,7 +423,8 @@ INSERT INTO `to_do_updates` (`update_id`, `to_do_id`, `developer_id`, `status`, 
 (159, 37, 5, 2, 'this is done it seems', '2013-01-27 19:49:10'),
 (160, 28, 5, 2, 'i have rewritten the code for now', '2013-01-27 19:49:37'),
 (161, 46, 5, 2, 'finished', '2013-01-27 19:50:21'),
-(162, 49, 5, 1, 'use on succes command maybe', '2013-01-27 19:51:12');
+(162, 49, 5, 1, 'use on succes command maybe', '2013-01-27 19:51:12'),
+(163, 48, 5, 2, 'add folder_id to sites..', '2013-02-11 07:19:53');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
